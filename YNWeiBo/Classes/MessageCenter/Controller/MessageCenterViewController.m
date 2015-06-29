@@ -8,6 +8,7 @@
 
 #import "MessageCenterViewController.h"
 #import "Test1ViewController.h"
+#import "UIBarButtonItem+Extension.h"
 
 @interface MessageCenterViewController ()
 
@@ -22,7 +23,13 @@
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"写私信" style:UIBarButtonItemStylePlain target:nil action:nil];
+    
+    }
+
+-(void)viewWillAppear:(BOOL)animated{
+    self.navigationItem.rightBarButtonItem.enabled = NO;
+
 }
 
 - (void)didReceiveMemoryWarning {

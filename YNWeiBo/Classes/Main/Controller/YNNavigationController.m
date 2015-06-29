@@ -8,12 +8,28 @@
 
 #import "YNNavigationController.h"
 #import "UIView+Extension.h"
+#import "UIBarButtonItem+Extension.h"
 
 @interface YNNavigationController ()
 
 @end
 
 @implementation YNNavigationController
+
++(void)initialize{
+    
+    UIBarButtonItem *item = [UIBarButtonItem appearance];
+    
+    NSMutableDictionary *textAttrs = [NSMutableDictionary dictionary];
+    textAttrs[NSForegroundColorAttributeName] = [UIColor orangeColor];
+    textAttrs[NSFontAttributeName] = [UIFont systemFontOfSize:13];
+    [item setTitleTextAttributes:textAttrs forState:UIControlStateNormal];
+    
+    NSMutableDictionary *disableTextAttrs = [NSMutableDictionary dictionary];
+    disableTextAttrs[NSForegroundColorAttributeName] = [UIColor grayColor];
+    disableTextAttrs[NSFontAttributeName] = [UIFont systemFontOfSize:13];
+    [item setTitleTextAttributes:disableTextAttrs forState:UIControlStateDisabled];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -33,21 +49,10 @@
         
         viewController.hidesBottomBarWhenPushed = YES;
         
-        UIButton *leftBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [leftBtn addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
-        [leftBtn setBackgroundImage:[UIImage imageNamed:@"navigationbar_back"] forState:UIControlStateNormal];
-        [leftBtn setBackgroundImage:[UIImage imageNamed:@"navigationbar_back_highlighted"] forState:UIControlStateHighlighted];
-        leftBtn.size = leftBtn.currentBackgroundImage.size;
+        viewController.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(more) image:@"navigationbar_back" highImage:@"navigationbar_back_highlighted"];
         
-        viewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:leftBtn];
         
-        UIButton *moreBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [moreBtn addTarget:self action:@selector(more) forControlEvents:UIControlEventTouchUpInside];
-        [moreBtn setBackgroundImage:[UIImage imageNamed:@"navigationbar_more"] forState:UIControlStateNormal];
-        [moreBtn setBackgroundImage:[UIImage imageNamed:@"navigationbar_more_highlighted"] forState:UIControlStateHighlighted];
-        moreBtn.size = moreBtn.currentBackgroundImage.size;
-        
-        viewController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:moreBtn];
+        viewController.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(more) image:@"navigationbar_more" highImage:@"navigationbar_more_highlighted"];
         
     }
     [super pushViewController:viewController animated:animated];

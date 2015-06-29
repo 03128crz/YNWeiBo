@@ -28,7 +28,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    
     HomeViewController *homeVc = [HomeViewController new];
     [self addChildVc:homeVc Title:@"首页" image:@"tabbar_home" selectedImage:@"tabbar_home_selected"];
     

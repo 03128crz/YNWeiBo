@@ -15,6 +15,7 @@
 		AC01C3A21B41968A007D0D40 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AC01C38E1B41968A007D0D40 /* main.m */; };
 		AC01C3A31B41968A007D0D40 /* MessageCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC01C3941B41968A007D0D40 /* MessageCenterViewController.m */; };
 		AC01C3A41B41968A007D0D40 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC01C39A1B41968A007D0D40 /* ProfileViewController.m */; };
+		AC01C3A71B41987E007D0D40 /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = AC01C3A61B41987E007D0D40 /* UIBarButtonItem+Extension.m */; };
 		AC29BD151B3FEDB200C60052 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC29BD141B3FEDB200C60052 /* Images.xcassets */; };
 		AC29BD181B3FEDB200C60052 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC29BD161B3FEDB200C60052 /* LaunchScreen.xib */; };
 		AC29BD241B3FEDB200C60052 /* YNWeiBoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AC29BD231B3FEDB200C60052 /* YNWeiBoTests.m */; };
@@ -48,6 +49,8 @@
 		AC01C3941B41968A007D0D40 /* MessageCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageCenterViewController.m; sourceTree = "<group>"; };
 		AC01C3991B41968A007D0D40 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		AC01C39A1B41968A007D0D40 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		AC01C3A51B41987E007D0D40 /* UIBarButtonItem+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Extension.h"; sourceTree = "<group>"; };
+		AC01C3A61B41987E007D0D40 /* UIBarButtonItem+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Extension.m"; sourceTree = "<group>"; };
 		AC29BD041B3FEDB200C60052 /* YNWeiBo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YNWeiBo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC29BD081B3FEDB200C60052 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC29BD141B3FEDB200C60052 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -173,6 +176,8 @@
 			children = (
 				AC01C38C1B41968A007D0D40 /* UIView+Extension.h */,
 				AC01C38D1B41968A007D0D40 /* UIView+Extension.m */,
+				AC01C3A51B41987E007D0D40 /* UIBarButtonItem+Extension.h */,
+				AC01C3A61B41987E007D0D40 /* UIBarButtonItem+Extension.m */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -432,6 +437,7 @@
 				AC9EF90D1B401FAB005317CF /* Test1ViewController.m in Sources */,
 				AC01C3A21B41968A007D0D40 /* main.m in Sources */,
 				AC01C3A41B41968A007D0D40 /* ProfileViewController.m in Sources */,
+				AC01C3A71B41987E007D0D40 /* UIBarButtonItem+Extension.m in Sources */,
 				AC9EF8F81B4006F5005317CF /* AppDelegate.m in Sources */,
 				AC01C39D1B41968A007D0D40 /* DiscoverViewController.m in Sources */,
 				AC01C3A31B41968A007D0D40 /* MessageCenterViewController.m in Sources */,
