@@ -58,7 +58,7 @@
     [childVc.tabBarItem setTitleTextAttributes:textAttrs forState:UIControlStateNormal];
     [childVc.tabBarItem setTitleTextAttributes:selectTextAttrs forState:UIControlStateSelected];
     
-    childVc.view.backgroundColor = YNRendomColor;
+    //childVc.view.backgroundColor = YNRendomColor;
     
     //添加导航控制器
     YNNavigationController *nav = [[YNNavigationController alloc] initWithRootViewController:childVc];

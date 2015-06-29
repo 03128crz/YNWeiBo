@@ -9,6 +9,12 @@
 #import "AppDelegate.h"
 #import "MainTabBarController.h"
 
+#ifdef DEBUG
+#define YNLog(...) NSLog(__VA__ARGS__)
+#else
+#define YNLog(...)
+#endif
+
 @interface AppDelegate ()
 
 @end
