@@ -7,19 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC01C39D1B41968A007D0D40 /* DiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC01C37C1B41968A007D0D40 /* DiscoverViewController.m */; };
+		AC01C39E1B41968A007D0D40 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC01C3821B41968A007D0D40 /* HomeViewController.m */; };
+		AC01C39F1B41968A007D0D40 /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC01C3881B41968A007D0D40 /* MainTabBarController.m */; };
+		AC01C3A01B41968A007D0D40 /* YNNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC01C38A1B41968A007D0D40 /* YNNavigationController.m */; };
+		AC01C3A11B41968A007D0D40 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = AC01C38D1B41968A007D0D40 /* UIView+Extension.m */; };
+		AC01C3A21B41968A007D0D40 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AC01C38E1B41968A007D0D40 /* main.m */; };
+		AC01C3A31B41968A007D0D40 /* MessageCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC01C3941B41968A007D0D40 /* MessageCenterViewController.m */; };
+		AC01C3A41B41968A007D0D40 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC01C39A1B41968A007D0D40 /* ProfileViewController.m */; };
 		AC29BD151B3FEDB200C60052 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC29BD141B3FEDB200C60052 /* Images.xcassets */; };
 		AC29BD181B3FEDB200C60052 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC29BD161B3FEDB200C60052 /* LaunchScreen.xib */; };
 		AC29BD241B3FEDB200C60052 /* YNWeiBoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AC29BD231B3FEDB200C60052 /* YNWeiBoTests.m */; };
 		AC9EF8F81B4006F5005317CF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9EF8F41B4006F5005317CF /* AppDelegate.m */; };
-		AC9EF8F91B4006F5005317CF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9EF8F51B4006F5005317CF /* main.m */; };
-		AC9EF8FE1B400E7B005317CF /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9EF8FD1B400E7B005317CF /* HomeViewController.m */; };
-		AC9EF9011B400E87005317CF /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9EF9001B400E87005317CF /* ProfileViewController.m */; };
-		AC9EF9041B400E94005317CF /* MessageCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9EF9031B400E94005317CF /* MessageCenterViewController.m */; };
-		AC9EF9071B400EA7005317CF /* DiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9EF9061B400EA7005317CF /* DiscoverViewController.m */; };
-		AC9EF90A1B401C1F005317CF /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9EF9091B401C1F005317CF /* MainTabBarController.m */; };
 		AC9EF90D1B401FAB005317CF /* Test1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9EF90C1B401FAB005317CF /* Test1ViewController.m */; };
-		AC9EF9131B402215005317CF /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9EF9121B402215005317CF /* UIView+Extension.m */; };
-		AC9EF9161B402614005317CF /* YNNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9EF9151B402614005317CF /* YNNavigationController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +33,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AC01C37B1B41968A007D0D40 /* DiscoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoverViewController.h; sourceTree = "<group>"; };
+		AC01C37C1B41968A007D0D40 /* DiscoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoverViewController.m; sourceTree = "<group>"; };
+		AC01C3811B41968A007D0D40 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		AC01C3821B41968A007D0D40 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		AC01C3871B41968A007D0D40 /* MainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBarController.h; sourceTree = "<group>"; };
+		AC01C3881B41968A007D0D40 /* MainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBarController.m; sourceTree = "<group>"; };
+		AC01C3891B41968A007D0D40 /* YNNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YNNavigationController.h; sourceTree = "<group>"; };
+		AC01C38A1B41968A007D0D40 /* YNNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YNNavigationController.m; sourceTree = "<group>"; };
+		AC01C38C1B41968A007D0D40 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
+		AC01C38D1B41968A007D0D40 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
+		AC01C38E1B41968A007D0D40 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		AC01C3931B41968A007D0D40 /* MessageCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageCenterViewController.h; sourceTree = "<group>"; };
+		AC01C3941B41968A007D0D40 /* MessageCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageCenterViewController.m; sourceTree = "<group>"; };
+		AC01C3991B41968A007D0D40 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		AC01C39A1B41968A007D0D40 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		AC29BD041B3FEDB200C60052 /* YNWeiBo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YNWeiBo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC29BD081B3FEDB200C60052 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC29BD141B3FEDB200C60052 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -42,23 +57,8 @@
 		AC29BD231B3FEDB200C60052 /* YNWeiBoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YNWeiBoTests.m; sourceTree = "<group>"; };
 		AC9EF8F31B4006F5005317CF /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		AC9EF8F41B4006F5005317CF /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		AC9EF8F51B4006F5005317CF /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		AC9EF8FC1B400E7B005317CF /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
-		AC9EF8FD1B400E7B005317CF /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
-		AC9EF8FF1B400E87005317CF /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
-		AC9EF9001B400E87005317CF /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
-		AC9EF9021B400E94005317CF /* MessageCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageCenterViewController.h; sourceTree = "<group>"; };
-		AC9EF9031B400E94005317CF /* MessageCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageCenterViewController.m; sourceTree = "<group>"; };
-		AC9EF9051B400EA7005317CF /* DiscoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoverViewController.h; sourceTree = "<group>"; };
-		AC9EF9061B400EA7005317CF /* DiscoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoverViewController.m; sourceTree = "<group>"; };
-		AC9EF9081B401C1F005317CF /* MainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBarController.h; sourceTree = "<group>"; };
-		AC9EF9091B401C1F005317CF /* MainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBarController.m; sourceTree = "<group>"; };
 		AC9EF90B1B401FAB005317CF /* Test1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Test1ViewController.h; sourceTree = "<group>"; };
 		AC9EF90C1B401FAB005317CF /* Test1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test1ViewController.m; sourceTree = "<group>"; };
-		AC9EF9111B402215005317CF /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
-		AC9EF9121B402215005317CF /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
-		AC9EF9141B402614005317CF /* YNNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YNNavigationController.h; sourceTree = "<group>"; };
-		AC9EF9151B402614005317CF /* YNNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YNNavigationController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +79,184 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AC01C3791B41968A007D0D40 /* Discover */ = {
+			isa = PBXGroup;
+			children = (
+				AC01C37A1B41968A007D0D40 /* Controller */,
+				AC01C37D1B41968A007D0D40 /* Model */,
+				AC01C37E1B41968A007D0D40 /* View */,
+			);
+			path = Discover;
+			sourceTree = "<group>";
+		};
+		AC01C37A1B41968A007D0D40 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				AC01C37B1B41968A007D0D40 /* DiscoverViewController.h */,
+				AC01C37C1B41968A007D0D40 /* DiscoverViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		AC01C37D1B41968A007D0D40 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		AC01C37E1B41968A007D0D40 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AC01C37F1B41968A007D0D40 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				AC01C3801B41968A007D0D40 /* Controller */,
+				AC01C3831B41968A007D0D40 /* Model */,
+				AC01C3841B41968A007D0D40 /* View */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		AC01C3801B41968A007D0D40 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				AC01C3811B41968A007D0D40 /* HomeViewController.h */,
+				AC01C3821B41968A007D0D40 /* HomeViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		AC01C3831B41968A007D0D40 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		AC01C3841B41968A007D0D40 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AC01C3851B41968A007D0D40 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				AC01C3861B41968A007D0D40 /* Controller */,
+				AC01C38B1B41968A007D0D40 /* Extension */,
+				AC01C38E1B41968A007D0D40 /* main.m */,
+				AC01C38F1B41968A007D0D40 /* Model */,
+				AC01C3901B41968A007D0D40 /* View */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		AC01C3861B41968A007D0D40 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				AC01C3871B41968A007D0D40 /* MainTabBarController.h */,
+				AC01C3881B41968A007D0D40 /* MainTabBarController.m */,
+				AC01C3891B41968A007D0D40 /* YNNavigationController.h */,
+				AC01C38A1B41968A007D0D40 /* YNNavigationController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		AC01C38B1B41968A007D0D40 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				AC01C38C1B41968A007D0D40 /* UIView+Extension.h */,
+				AC01C38D1B41968A007D0D40 /* UIView+Extension.m */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		AC01C38F1B41968A007D0D40 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		AC01C3901B41968A007D0D40 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AC01C3911B41968A007D0D40 /* MessageCenter */ = {
+			isa = PBXGroup;
+			children = (
+				AC01C3921B41968A007D0D40 /* Controller */,
+				AC01C3951B41968A007D0D40 /* Model */,
+				AC01C3961B41968A007D0D40 /* View */,
+			);
+			path = MessageCenter;
+			sourceTree = "<group>";
+		};
+		AC01C3921B41968A007D0D40 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				AC01C3931B41968A007D0D40 /* MessageCenterViewController.h */,
+				AC01C3941B41968A007D0D40 /* MessageCenterViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		AC01C3951B41968A007D0D40 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		AC01C3961B41968A007D0D40 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AC01C3971B41968A007D0D40 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				AC01C3981B41968A007D0D40 /* Controller */,
+				AC01C39B1B41968A007D0D40 /* Model */,
+				AC01C39C1B41968A007D0D40 /* View */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		AC01C3981B41968A007D0D40 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				AC01C3991B41968A007D0D40 /* ProfileViewController.h */,
+				AC01C39A1B41968A007D0D40 /* ProfileViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		AC01C39B1B41968A007D0D40 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		AC01C39C1B41968A007D0D40 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		AC29BCFB1B3FEDB200C60052 = {
 			isa = PBXGroup;
 			children = (
@@ -136,23 +314,13 @@
 		AC9EF8F21B4006F5005317CF /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				AC01C3791B41968A007D0D40 /* Discover */,
+				AC01C37F1B41968A007D0D40 /* Home */,
+				AC01C3851B41968A007D0D40 /* Main */,
+				AC01C3911B41968A007D0D40 /* MessageCenter */,
+				AC01C3971B41968A007D0D40 /* Profile */,
 				AC9EF8F31B4006F5005317CF /* AppDelegate.h */,
-				AC9EF9141B402614005317CF /* YNNavigationController.h */,
-				AC9EF9151B402614005317CF /* YNNavigationController.m */,
-				AC9EF9111B402215005317CF /* UIView+Extension.h */,
-				AC9EF9121B402215005317CF /* UIView+Extension.m */,
 				AC9EF8F41B4006F5005317CF /* AppDelegate.m */,
-				AC9EF8F51B4006F5005317CF /* main.m */,
-				AC9EF8FC1B400E7B005317CF /* HomeViewController.h */,
-				AC9EF8FD1B400E7B005317CF /* HomeViewController.m */,
-				AC9EF8FF1B400E87005317CF /* ProfileViewController.h */,
-				AC9EF9001B400E87005317CF /* ProfileViewController.m */,
-				AC9EF9021B400E94005317CF /* MessageCenterViewController.h */,
-				AC9EF9031B400E94005317CF /* MessageCenterViewController.m */,
-				AC9EF9051B400EA7005317CF /* DiscoverViewController.h */,
-				AC9EF9061B400EA7005317CF /* DiscoverViewController.m */,
-				AC9EF9081B401C1F005317CF /* MainTabBarController.h */,
-				AC9EF9091B401C1F005317CF /* MainTabBarController.m */,
 				AC9EF90B1B401FAB005317CF /* Test1ViewController.h */,
 				AC9EF90C1B401FAB005317CF /* Test1ViewController.m */,
 			);
@@ -258,16 +426,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC9EF9161B402614005317CF /* YNNavigationController.m in Sources */,
-				AC9EF9131B402215005317CF /* UIView+Extension.m in Sources */,
+				AC01C3A11B41968A007D0D40 /* UIView+Extension.m in Sources */,
+				AC01C3A01B41968A007D0D40 /* YNNavigationController.m in Sources */,
+				AC01C39F1B41968A007D0D40 /* MainTabBarController.m in Sources */,
 				AC9EF90D1B401FAB005317CF /* Test1ViewController.m in Sources */,
-				AC9EF8F91B4006F5005317CF /* main.m in Sources */,
-				AC9EF90A1B401C1F005317CF /* MainTabBarController.m in Sources */,
-				AC9EF9071B400EA7005317CF /* DiscoverViewController.m in Sources */,
+				AC01C3A21B41968A007D0D40 /* main.m in Sources */,
+				AC01C3A41B41968A007D0D40 /* ProfileViewController.m in Sources */,
 				AC9EF8F81B4006F5005317CF /* AppDelegate.m in Sources */,
-				AC9EF9041B400E94005317CF /* MessageCenterViewController.m in Sources */,
-				AC9EF9011B400E87005317CF /* ProfileViewController.m in Sources */,
-				AC9EF8FE1B400E7B005317CF /* HomeViewController.m in Sources */,
+				AC01C39D1B41968A007D0D40 /* DiscoverViewController.m in Sources */,
+				AC01C3A31B41968A007D0D40 /* MessageCenterViewController.m in Sources */,
+				AC01C39E1B41968A007D0D40 /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
