@@ -7,7 +7,7 @@
 //
 
 #import "DiscoverViewController.h"
-
+#import "UIView+Extension.h"
 @interface DiscoverViewController ()
 
 @end
@@ -17,11 +17,26 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    //自定义搜索框
+    UITextField *searchBar = [[UITextField alloc]init];
+    searchBar.width = [UIScreen mainScreen].bounds.size.width;
+    searchBar.height = 30;
+    searchBar.font =[UIFont systemFontOfSize:15];
+    searchBar.placeholder = @"请输入关键词搜索";
+    searchBar.background =[UIImage imageNamed:@"searchbar_textfield_background"];
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    //放大镜图标
+    UIImageView *searchIcon = [[UIImageView alloc]init];
+    searchIcon.image = [UIImage imageNamed:@"searchbar_textfield_search_icon"];
+    searchIcon.width= 30;
+    searchIcon.height =30;
+    searchIcon.contentMode = UIViewContentModeCenter;
+    
+    //[searchBar addSubview:searchIcon];
+    searchBar.leftView = searchIcon;
+    searchBar.leftViewMode = UITextFieldViewModeAlways;
+    
+    self.navigationItem.titleView =searchBar;
 }
 
 - (void)didReceiveMemoryWarning {
