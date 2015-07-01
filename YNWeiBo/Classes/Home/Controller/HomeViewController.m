@@ -8,6 +8,9 @@
 
 #import "HomeViewController.h"
 #import "UIBarButtonItem+Extension.h"
+#import "UIView+Extension.h"
+#import "YNDropdownMenu.h"
+
 @interface HomeViewController ()
 
 @end
@@ -19,13 +22,32 @@
     
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(friendSearch) image:@"navigationbar_friendsearch" highImage:@"navigationbar_friendsearch_highlighted"];
     
-    
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(pop) image:@"navigationbar_pop" highImage:@"navigationbar_pop_highlighted"];
+    
+    // 中间标题按钮
+    UIButton *titleButton = [[UIButton alloc]init];
+    [titleButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    titleButton.titleLabel.font = [UIFont boldSystemFontOfSize:17];
+    titleButton.width = 150;
+    titleButton.height = 30;
+    
+    [titleButton setTitle:@"首页" forState:UIControlStateNormal];
+    [titleButton setImage:[UIImage imageNamed:@"navigationbar_arrow_down"] forState:UIControlStateNormal];
+    titleButton.imageEdgeInsets = UIEdgeInsetsMake(0, 70, 0, 0);
+    titleButton.titleEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 40);
+    
+    [titleButton addTarget:self action:@selector(titleClick:) forControlEvents:UIControlEventTouchUpInside];
+    
+    self.navigationItem.titleView = titleButton;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)titleClick:(UIButton *)titleButton {
+    
+    YNDropdownMenu *menu = [YNDropdownMenu menu];
+    menu.content = [UIButton buttonWithType:UIButtonTypeContactAdd];
+    [menu showFrom:titleButton];
+    
+
 }
 
 

@@ -21,6 +21,7 @@
 		AC29BD241B3FEDB200C60052 /* YNWeiBoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AC29BD231B3FEDB200C60052 /* YNWeiBoTests.m */; };
 		AC9EF8F81B4006F5005317CF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9EF8F41B4006F5005317CF /* AppDelegate.m */; };
 		AC9EF90D1B401FAB005317CF /* Test1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9EF90C1B401FAB005317CF /* Test1ViewController.m */; };
+		ACD8A6A81B42F86300B34D93 /* YNDropdownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD8A6A71B42F86300B34D93 /* YNDropdownMenu.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,8 @@
 		AC9EF8F41B4006F5005317CF /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		AC9EF90B1B401FAB005317CF /* Test1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Test1ViewController.h; sourceTree = "<group>"; };
 		AC9EF90C1B401FAB005317CF /* Test1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test1ViewController.m; sourceTree = "<group>"; };
+		ACD8A6A61B42F86300B34D93 /* YNDropdownMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YNDropdownMenu.h; sourceTree = "<group>"; };
+		ACD8A6A71B42F86300B34D93 /* YNDropdownMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YNDropdownMenu.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +195,8 @@
 		AC01C3901B41968A007D0D40 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				ACD8A6A61B42F86300B34D93 /* YNDropdownMenu.h */,
+				ACD8A6A71B42F86300B34D93 /* YNDropdownMenu.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -435,6 +440,7 @@
 				AC01C3A01B41968A007D0D40 /* YNNavigationController.m in Sources */,
 				AC01C39F1B41968A007D0D40 /* MainTabBarController.m in Sources */,
 				AC9EF90D1B401FAB005317CF /* Test1ViewController.m in Sources */,
+				ACD8A6A81B42F86300B34D93 /* YNDropdownMenu.m in Sources */,
 				AC01C3A21B41968A007D0D40 /* main.m in Sources */,
 				AC01C3A41B41968A007D0D40 /* ProfileViewController.m in Sources */,
 				AC01C3A71B41987E007D0D40 /* UIBarButtonItem+Extension.m in Sources */,
