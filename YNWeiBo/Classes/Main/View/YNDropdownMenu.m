@@ -84,10 +84,18 @@
     CGRect newFrame = [from convertRect:from.bounds toView:window];
     self.containerView.centerX  = CGRectGetMidX(newFrame);
     self.containerView.y = CGRectGetMaxY(newFrame);
+    
+    if ([self.delegate respondsToSelector:@selector(dropdownMenuDidShow:)]) {
+        [self.delegate dropdownMenuDidShow:self];
+    }
 }
 
 -(void)dismiss{
     [self removeFromSuperview];
+    
+    if ([self.delegate respondsToSelector:@selector(dropdownMenuDidDismiss:)]) {
+        [self.delegate dropdownMenuDidDismiss:self];
+    }
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{

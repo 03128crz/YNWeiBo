@@ -47,7 +47,7 @@
     
     NSLog(@"%f",self.width);
     
-    self.addBtn.centerX = self.width * 3.5;
+    self.addBtn.centerX = self.width * 0.5;
     self.addBtn.centerY = self.height * 0.5;
     
     CGFloat tabbarButtonW = self.width/5;

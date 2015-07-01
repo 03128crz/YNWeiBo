@@ -79,7 +79,7 @@
 }
 
 -(CGFloat)width{
-    return self.frame.size.height;
+    return self.frame.size.width;
     
 }
 

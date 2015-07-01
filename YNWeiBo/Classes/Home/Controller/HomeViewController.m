@@ -11,7 +11,7 @@
 #import "UIView+Extension.h"
 #import "YNDropdownMenu.h"
 
-@interface HomeViewController ()
+@interface HomeViewController ()<YNDropdownMenuDelegate>
 
 @end
 
@@ -33,6 +33,7 @@
     
     [titleButton setTitle:@"首页" forState:UIControlStateNormal];
     [titleButton setImage:[UIImage imageNamed:@"navigationbar_arrow_down"] forState:UIControlStateNormal];
+    [titleButton setImage:[UIImage imageNamed:@"navigationbar_arrow_up"] forState:UIControlStateSelected];
     titleButton.imageEdgeInsets = UIEdgeInsetsMake(0, 70, 0, 0);
     titleButton.titleEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 40);
     
@@ -44,12 +45,23 @@
 - (void)titleClick:(UIButton *)titleButton {
     
     YNDropdownMenu *menu = [YNDropdownMenu menu];
+    menu.delegate =self;
     menu.content = [UIButton buttonWithType:UIButtonTypeContactAdd];
     [menu showFrom:titleButton];
     
 
 }
 
+-(void)dropdownMenuDidShow:(YNDropdownMenu *)menu{
+    UIButton *titleButton = (UIButton *)self.navigationItem.titleView;
+    titleButton.selected = YES;
+
+}
+
+-(void)dropdownMenuDidDismiss:(YNDropdownMenu *)menu{
+    UIButton *titleButton = (UIButton *)self.navigationItem.titleView;
+    titleButton.selected = NO;
+}
 
 -(void)friendSearch{
     

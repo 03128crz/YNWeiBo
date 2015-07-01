@@ -7,6 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+@class YNDropdownMenu;
+
+@protocol YNDropdownMenuDelegate <NSObject>
+
+@optional
+-(void)dropdownMenuDidDismiss:(YNDropdownMenu*)menu;
+-(void)dropdownMenuDidShow:(YNDropdownMenu*)menu;
+@end
 
 @interface YNDropdownMenu : UIView
 
@@ -18,5 +26,6 @@
 
 @property(nonatomic,strong)UIView *content;
 @property(nonatomic,strong)UIViewController *contentController;
+@property(nonatomic,weak)id<YNDropdownMenuDelegate> delegate;
 
 @end
