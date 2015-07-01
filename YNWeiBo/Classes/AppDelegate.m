@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "MainTabBarController.h"
+#import "NewfeatureViewController.h"
 
 #ifdef DEBUG
 #define YNLog(...) NSLog(__VA__ARGS__)
@@ -28,8 +29,9 @@
     self.window = [[UIWindow alloc]init];
     self.window.frame = [UIScreen mainScreen].bounds;
     
-    UITabBarController  *tabbarVc = [[MainTabBarController alloc] init];
-    self.window.rootViewController = tabbarVc;
+
+    //self.window.rootViewController = [[MainTabBarController alloc] init];
+    self.window.rootViewController = [NewfeatureViewController new];
     
     [self.window makeKeyAndVisible];
     
