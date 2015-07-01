@@ -12,13 +12,15 @@
 #import "MessageCenterViewController.h"
 #import "DiscoverViewController.h"
 #import "YNNavigationController.h"
+#import "UIView+Extension.h"
+#import "YNTabBar.h"
 
 #define YNRendomColor [UIColor colorWithRed:arc4random_uniform(256)/255.0 green:arc4random_uniform(256)/255.0 blue:arc4random_uniform(256)/255.0 alpha:1.0]
 
 #define YNRGBColor(r,g,b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
 
 
-@interface MainTabBarController ()
+@interface MainTabBarController ()<YNTabBarDelegate>
 
 @end
 
@@ -39,8 +41,23 @@
 
     ProfileViewController *profileVc = [ProfileViewController new];
     [self addChildVc:profileVc Title:@"我" image:@"tabbar_profile" selectedImage:@"tabbar_profile_selected"];
+    
+    //更新系统自带的tabbar
+    YNTabBar *tabBar = [[YNTabBar alloc]init];
+    tabBar.delegate =self;
+    [self setValue:tabBar forKeyPath:@"tabBar"];
+    NSLog(@"%@",self.tabBar);
+    
+
+}
 
 
+
+-(void)tabBarDidClickPlusButton:(YNTabBar *)tabBar{
+    
+    UIViewController *vc = [[UIViewController alloc]init];
+    vc.view.backgroundColor  = [UIColor redColor];
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 
