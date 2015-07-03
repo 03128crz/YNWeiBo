@@ -23,7 +23,13 @@
 		AC83CEB61B444B9D000F8A76 /* NewfeatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC83CEB51B444B9D000F8A76 /* NewfeatureViewController.m */; };
 		AC9EF8F81B4006F5005317CF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9EF8F41B4006F5005317CF /* AppDelegate.m */; };
 		AC9EF90D1B401FAB005317CF /* Test1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9EF90C1B401FAB005317CF /* Test1ViewController.m */; };
+		ACD073111B46EE2300A1C55A /* OAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD073101B46EE2300A1C55A /* OAuthViewController.m */; };
+		ACD073511B46F6EF00A1C55A /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD073501B46F6EF00A1C55A /* Account.m */; };
+		ACD073591B46FB9500A1C55A /* MBProgressHUD+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD073551B46FB9500A1C55A /* MBProgressHUD+MJ.m */; };
+		ACD0735A1B46FB9500A1C55A /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = ACD073561B46FB9500A1C55A /* MBProgressHUD.bundle */; };
+		ACD0735B1B46FB9500A1C55A /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD073581B46FB9500A1C55A /* MBProgressHUD.m */; };
 		ACD8A6A81B42F86300B34D93 /* YNDropdownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD8A6A71B42F86300B34D93 /* YNDropdownMenu.m */; };
+		E5BE2A939180A81742A5E826 /* libPods-YNWeiBo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 877181B59D278872CB72DA81 /* libPods-YNWeiBo.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +43,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		877181B59D278872CB72DA81 /* libPods-YNWeiBo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YNWeiBo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A4571994FAFC8095EA7964FF /* Pods-YNWeiBo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YNWeiBo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YNWeiBo/Pods-YNWeiBo.debug.xcconfig"; sourceTree = "<group>"; };
+		A7648F2B4E8F5993BC063049 /* Pods-YNWeiBo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YNWeiBo.release.xcconfig"; path = "Pods/Target Support Files/Pods-YNWeiBo/Pods-YNWeiBo.release.xcconfig"; sourceTree = "<group>"; };
 		AC01C37B1B41968A007D0D40 /* DiscoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoverViewController.h; sourceTree = "<group>"; };
 		AC01C37C1B41968A007D0D40 /* DiscoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoverViewController.m; sourceTree = "<group>"; };
 		AC01C3811B41968A007D0D40 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
@@ -69,6 +78,15 @@
 		AC9EF8F41B4006F5005317CF /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		AC9EF90B1B401FAB005317CF /* Test1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Test1ViewController.h; sourceTree = "<group>"; };
 		AC9EF90C1B401FAB005317CF /* Test1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test1ViewController.m; sourceTree = "<group>"; };
+		ACD0730F1B46EE2300A1C55A /* OAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuthViewController.h; sourceTree = "<group>"; };
+		ACD073101B46EE2300A1C55A /* OAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAuthViewController.m; sourceTree = "<group>"; };
+		ACD0734F1B46F6EF00A1C55A /* Account.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Account.h; sourceTree = "<group>"; };
+		ACD073501B46F6EF00A1C55A /* Account.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Account.m; sourceTree = "<group>"; };
+		ACD073541B46FB9500A1C55A /* MBProgressHUD+MJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+MJ.h"; sourceTree = "<group>"; };
+		ACD073551B46FB9500A1C55A /* MBProgressHUD+MJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+MJ.m"; sourceTree = "<group>"; };
+		ACD073561B46FB9500A1C55A /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
+		ACD073571B46FB9500A1C55A /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		ACD073581B46FB9500A1C55A /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		ACD8A6A61B42F86300B34D93 /* YNDropdownMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YNDropdownMenu.h; sourceTree = "<group>"; };
 		ACD8A6A71B42F86300B34D93 /* YNDropdownMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YNDropdownMenu.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -78,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5BE2A939180A81742A5E826 /* libPods-YNWeiBo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,6 +179,7 @@
 		AC01C3851B41968A007D0D40 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				ACD073521B46FB9500A1C55A /* Lib */,
 				AC01C3861B41968A007D0D40 /* Controller */,
 				AC01C38B1B41968A007D0D40 /* Extension */,
 				AC01C38E1B41968A007D0D40 /* main.m */,
@@ -281,6 +301,8 @@
 				AC29BD061B3FEDB200C60052 /* YNWeiBo */,
 				AC29BD201B3FEDB200C60052 /* YNWeiBoTests */,
 				AC29BD051B3FEDB200C60052 /* Products */,
+				EE1EA8D093DBBAB4EEE385D7 /* Pods */,
+				B28CF57A731A682389786EBB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -332,6 +354,7 @@
 		AC9EF8F21B4006F5005317CF /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				ACD0730C1B46EDEB00A1C55A /* OAuth */,
 				AC01C3791B41968A007D0D40 /* Discover */,
 				AC01C37F1B41968A007D0D40 /* Home */,
 				AC01C3851B41968A007D0D40 /* Main */,
@@ -347,6 +370,70 @@
 			path = Classes;
 			sourceTree = "<group>";
 		};
+		ACD0730C1B46EDEB00A1C55A /* OAuth */ = {
+			isa = PBXGroup;
+			children = (
+				ACD0730D1B46EDEB00A1C55A /* Controller */,
+				ACD0730E1B46EDEB00A1C55A /* Model */,
+			);
+			path = OAuth;
+			sourceTree = "<group>";
+		};
+		ACD0730D1B46EDEB00A1C55A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				ACD0730F1B46EE2300A1C55A /* OAuthViewController.h */,
+				ACD073101B46EE2300A1C55A /* OAuthViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		ACD0730E1B46EDEB00A1C55A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				ACD0734F1B46F6EF00A1C55A /* Account.h */,
+				ACD073501B46F6EF00A1C55A /* Account.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		ACD073521B46FB9500A1C55A /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				ACD073531B46FB9500A1C55A /* MBProgressHUD */,
+			);
+			path = Lib;
+			sourceTree = "<group>";
+		};
+		ACD073531B46FB9500A1C55A /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				ACD073541B46FB9500A1C55A /* MBProgressHUD+MJ.h */,
+				ACD073551B46FB9500A1C55A /* MBProgressHUD+MJ.m */,
+				ACD073561B46FB9500A1C55A /* MBProgressHUD.bundle */,
+				ACD073571B46FB9500A1C55A /* MBProgressHUD.h */,
+				ACD073581B46FB9500A1C55A /* MBProgressHUD.m */,
+			);
+			path = MBProgressHUD;
+			sourceTree = "<group>";
+		};
+		B28CF57A731A682389786EBB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				877181B59D278872CB72DA81 /* libPods-YNWeiBo.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EE1EA8D093DBBAB4EEE385D7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A4571994FAFC8095EA7964FF /* Pods-YNWeiBo.debug.xcconfig */,
+				A7648F2B4E8F5993BC063049 /* Pods-YNWeiBo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -354,9 +441,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AC29BD271B3FEDB200C60052 /* Build configuration list for PBXNativeTarget "YNWeiBo" */;
 			buildPhases = (
+				8A97DEA3B2E058B377834AE8 /* Check Pods Manifest.lock */,
 				AC29BD001B3FEDB200C60052 /* Sources */,
 				AC29BD011B3FEDB200C60052 /* Frameworks */,
 				AC29BD021B3FEDB200C60052 /* Resources */,
+				5B197F2B26CEA34D6FFB36AA /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -429,6 +518,7 @@
 			files = (
 				AC29BD181B3FEDB200C60052 /* LaunchScreen.xib in Resources */,
 				AC29BD151B3FEDB200C60052 /* Images.xcassets in Resources */,
+				ACD0735A1B46FB9500A1C55A /* MBProgressHUD.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,21 +531,58 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		5B197F2B26CEA34D6FFB36AA /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YNWeiBo/Pods-YNWeiBo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8A97DEA3B2E058B377834AE8 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		AC29BD001B3FEDB200C60052 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				AC83CEB61B444B9D000F8A76 /* NewfeatureViewController.m in Sources */,
+				ACD073511B46F6EF00A1C55A /* Account.m in Sources */,
 				AC01C3A11B41968A007D0D40 /* UIView+Extension.m in Sources */,
 				AC83CEB31B443649000F8A76 /* YNTabBar.m in Sources */,
 				AC01C3A01B41968A007D0D40 /* YNNavigationController.m in Sources */,
 				AC01C39F1B41968A007D0D40 /* MainTabBarController.m in Sources */,
 				AC9EF90D1B401FAB005317CF /* Test1ViewController.m in Sources */,
 				ACD8A6A81B42F86300B34D93 /* YNDropdownMenu.m in Sources */,
+				ACD073591B46FB9500A1C55A /* MBProgressHUD+MJ.m in Sources */,
 				AC01C3A21B41968A007D0D40 /* main.m in Sources */,
 				AC01C3A41B41968A007D0D40 /* ProfileViewController.m in Sources */,
+				ACD073111B46EE2300A1C55A /* OAuthViewController.m in Sources */,
 				AC01C3A71B41987E007D0D40 /* UIBarButtonItem+Extension.m in Sources */,
+				ACD0735B1B46FB9500A1C55A /* MBProgressHUD.m in Sources */,
 				AC9EF8F81B4006F5005317CF /* AppDelegate.m in Sources */,
 				AC01C39D1B41968A007D0D40 /* DiscoverViewController.m in Sources */,
 				AC01C3A31B41968A007D0D40 /* MessageCenterViewController.m in Sources */,
@@ -575,6 +702,7 @@
 		};
 		AC29BD281B3FEDB200C60052 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A4571994FAFC8095EA7964FF /* Pods-YNWeiBo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = YNWeiBo/Info.plist;
@@ -587,6 +715,7 @@
 		};
 		AC29BD291B3FEDB200C60052 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A7648F2B4E8F5993BC063049 /* Pods-YNWeiBo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = YNWeiBo/Info.plist;
