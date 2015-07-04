@@ -55,8 +55,22 @@
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+
+    //死亡状态
+    //前台运行
+    //后台暂停 停止一切动画、定时器、多媒体操作、联网
+    //后台运行
+    
+    //向操作系统申请后台运行的资格，能维持多外，是不确定的
+    UIBackgroundTaskIdentifier task = [application beginBackgroundTaskWithExpirationHandler:^{
+        //当申请的后台运行时间已结束，就会调用这个block
+        [application endBackgroundTask:task];
+        
+    }];
+    
+    //在info.plist 中设置后台模式：Required background modes ＝＝ App plays audio or streams audio/video using AirPlay
+    //搞一个0kb的mp3，没有声音，循环播放，保证应用在后台时存留时间长此
+    
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {

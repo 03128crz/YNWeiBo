@@ -17,6 +17,7 @@
 #import "Status.h"
 #import "User.h"
 #import "MJExtension.h"
+#import "LoadMoreFooter.h"
 
 @interface HomeViewController ()<YNDropdownMenuDelegate>
 /** */
@@ -32,8 +33,15 @@
     
     [self setupUserInfo];
     
-    [self setuprefresh];
+    [self setupDownRefresh];
     
+    [self setupUpRefresh];
+    //在主线程中，如果一直滚动不会触发
+    //程序进入后台，定时器会暂停运行
+    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(setupUnreadCount) userInfo:nil repeats:YES];
+    //主线程抽时间处理timer
+    [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+
     _statuses = [NSMutableArray array];
     
 }
@@ -95,13 +103,53 @@
 
 }
 
--(void)setuprefresh{
+-(void)setupDownRefresh{
     UIRefreshControl *control = [UIRefreshControl new];
     [control addTarget:self action:@selector(refreshStateChange:) forControlEvents:UIControlEventValueChanged];
     [self.tableView addSubview:control];
     //仅仅显示刷新状态,
     [control beginRefreshing];
     [self refreshStateChange:control];
+}
+
+-(void)setupUpRefresh{
+    
+    LoadMoreFooter *footer = [LoadMoreFooter footer];
+    self.tableView.tableFooterView = footer;
+}
+
+-(void)setupUnreadCount{
+    
+    
+    
+    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
+    
+    Account *account = [AccountTool account];
+    
+    NSMutableDictionary *params =[NSMutableDictionary dictionary];
+    
+    params[@"access_token"] = account.access_token;
+    params[@"uid"] = account.uid;
+    
+    [mgr GET:@"https://api.weibo.com/2/remind/unread_count.json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+       //int unreadCount= [responseObject[@"status"] intValue];
+        //self.tabBarItem.badgeValue = [NSString stringWithFormat:@"%d",unreadCount];
+        //@20 --> @"20"
+        NSString *unReadCount =[responseObject[@"status"] description ];
+        if ([unReadCount isEqualToString:@"0"]) {
+            self.tabBarItem.badgeValue = nil;
+            //需要用户授权
+            [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+        }else{
+            self.tabBarItem.badgeValue = [responseObject[@"status"] description ];
+            [UIApplication sharedApplication].applicationIconBadgeNumber = [unReadCount intValue];
+        }
+
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"请求未读娄错误:%@",error);
+    }];
 }
 
 -(void)refreshStateChange:(UIRefreshControl *)control{
@@ -133,6 +181,9 @@
 }
 
 -(void)showNewStatusCount:(int)count{
+    
+    self.tabBarItem.badgeValue = nil;
+    
     UILabel *label  = [UILabel new];
     label.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"timeline_new_status_background"]];
     label.width = [UIScreen mainScreen].bounds.size.width;
@@ -150,12 +201,13 @@
     //添加到导航控件的下面
     [self.navigationController.view insertSubview:label belowSubview:self.navigationController.navigationBar];
     
+    //如果某个动画执行完毕后，又要回到之前状态，建议用transform
     [UIView animateWithDuration:1.0 animations:^{
         //label.y +=label.height;
         //或者
         label.transform = CGAffineTransformMakeTranslation(0, label.height);
     } completion:^(BOOL finished) {
-        //延时
+        //延时 停留1s后再用1s时间回到原来位置，完成后remove
         [UIView animateWithDuration:1.0 delay:1 options:UIViewAnimationOptionCurveLinear animations:^{
             //label.y -=label.height;
             label.transform = CGAffineTransformIdentity;
