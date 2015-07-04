@@ -32,7 +32,7 @@
     
     [self setupUserInfo];
     
-    [self loadNewStatus];
+    [self setuprefresh];
     
     _statuses = [NSMutableArray array];
     
@@ -95,34 +95,77 @@
 
 }
 
--(void)loadNewStatus{
+-(void)setuprefresh{
+    UIRefreshControl *control = [UIRefreshControl new];
+    [control addTarget:self action:@selector(refreshStateChange:) forControlEvents:UIControlEventValueChanged];
+    [self.tableView addSubview:control];
+    //仅仅显示刷新状态,
+    [control beginRefreshing];
+    [self refreshStateChange:control];
+}
+
+-(void)refreshStateChange:(UIRefreshControl *)control{
     AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
     
     Account *account = [AccountTool account];
     
     NSMutableDictionary *params =[NSMutableDictionary dictionary];
-    
+    //只刷新最新的
+    Status *firstStatus = [self.statuses firstObject];
+    if (firstStatus) {
+        params[@"since_id"] = firstStatus.idstr;
+    }
     params[@"access_token"] = account.access_token;
-
+    
+    
     [mgr GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"最新动态:%@",responseObject);
-        
-//        NSArray *dictArray = responseObject[@"statuses"];
-//        
-//        for (NSDictionary *dict in dictArray) {
-//            Status *status = [Status objectWithKeyValues:dict];
-//            [self.statuses addObject:status];
-//        }
-        
-        self.statuses =[Status objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
-        
+        NSArray *newStatues = [Status objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
+        NSRange range = NSMakeRange(0, newStatues.count);
+        NSIndexSet *set = [NSIndexSet indexSetWithIndexesInRange:range];
+        [self.statuses insertObjects:newStatues atIndexes:set];
         [self.tableView reloadData];
-        
+        [control endRefreshing];
+        [self showNewStatusCount:newStatues.count];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         //
-        NSLog(@"请求最新动态失败:%@",error);
+        [control endRefreshing];
     }];
 }
+
+-(void)showNewStatusCount:(int)count{
+    UILabel *label  = [UILabel new];
+    label.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"timeline_new_status_background"]];
+    label.width = [UIScreen mainScreen].bounds.size.width;
+    label.height =30 ;
+    
+    if (count==0) {
+        label.text = @"没有新的微博数据";
+    }else{
+        label.text = [NSString stringWithFormat:@"共有%d条新的微博数据",count];
+    }
+    label.textColor = [UIColor whiteColor];
+    label.font = [UIFont systemFontOfSize:16];
+    label.y = 64-label.height;
+    label.textAlignment = NSTextAlignmentCenter;
+    //添加到导航控件的下面
+    [self.navigationController.view insertSubview:label belowSubview:self.navigationController.navigationBar];
+    
+    [UIView animateWithDuration:1.0 animations:^{
+        //label.y +=label.height;
+        //或者
+        label.transform = CGAffineTransformMakeTranslation(0, label.height);
+    } completion:^(BOOL finished) {
+        //延时
+        [UIView animateWithDuration:1.0 delay:1 options:UIViewAnimationOptionCurveLinear animations:^{
+            //label.y -=label.height;
+            label.transform = CGAffineTransformIdentity;
+        } completion:^(BOOL finished) {
+            [label removeFromSuperview];
+        }];
+    }];
+}
+
+
 
 - (void)titleClick:(UIButton *)titleButton {
     
