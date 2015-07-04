@@ -13,6 +13,7 @@
 #import "Account.h"
 #import "MBProgressHUD+MJ.h"
 #import "AccountTool.h"
+#import "UIWindow+Extension.h"
 
 @interface OAuthViewController ()<UIWebViewDelegate>
 
@@ -85,25 +86,12 @@
     
     [mgr POST:@"https://api.weibo.com/oauth2/access_token" parameters:params success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
         NSLog(@"请求成功-%@",responseObject);
-        
-          Account *account = [Account accountWithDict:responseObject];
+        [MBProgressHUD hideHUD];
+        Account *account = [Account accountWithDict:responseObject];
         
         [AccountTool saveAccount:account];
-        
-        //存储在沙盒中的版本号（上一次的使用版本）
-        NSString *lastVersion = [[NSUserDefaults standardUserDefaults] objectForKey:@"CFBundleVersion"];
-        
-        //当前软件的版本号(当前软件版本) Info.plist
-        NSString *currentVersion = [NSBundle mainBundle].infoDictionary[@"CFBundleVersion"];
         UIWindow *window = [UIApplication sharedApplication].keyWindow;
-        if ([currentVersion isEqualToString:lastVersion]) {
-            window.rootViewController = [[MainTabBarController alloc] init];
-        }else{
-            window.rootViewController = [NewfeatureViewController new];
-            //将当前的版本号存进沙盒
-            [[NSUserDefaults standardUserDefaults] setObject:currentVersion forKey:@"CFBundleVersion"];
-            [[NSUserDefaults standardUserDefaults] synchronize];
-        }
+        [window switchRootViewController];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"请求失败-%@",error);

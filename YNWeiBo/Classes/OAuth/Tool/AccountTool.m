@@ -14,9 +14,7 @@
 @implementation AccountTool
 
 +(void)saveAccount:(Account *)account{
-    
-    //获取帐号存储的时间（accessToken产生时间）
-    account.created_time =[NSDate date];
+
     //[responseObject writeToFile:path atomically:YES];
     [NSKeyedArchiver archiveRootObject:account toFile:AccountPath];
 }

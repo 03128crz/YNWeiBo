@@ -10,6 +10,9 @@
 #import "UIBarButtonItem+Extension.h"
 #import "UIView+Extension.h"
 #import "YNDropdownMenu.h"
+#import <AFNetworking.h>
+#import "AccountTool.h"
+#import "TitleButton.h"
 
 @interface HomeViewController ()<YNDropdownMenuDelegate>
 
@@ -20,26 +23,69 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    
+    [self setupNav];
+    
+    [self setupUserInfo];
+    
+    }
+
+-(void)setupUserInfo{
+    
+    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
+    
+    Account *account = [AccountTool account];
+    
+    NSMutableDictionary *params =[NSMutableDictionary dictionary];
+    
+    params[@"access_token"] = account.access_token;
+    params[@"uid"] = account.uid;
+    
+    [mgr GET:@"https://api.weibo.com/2/users/show.json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"用户信息:%@",responseObject);
+        
+        NSString *name = responseObject[@"name"];
+        
+        UIButton *titleButton = (UIButton *)self.navigationItem.titleView;
+        [titleButton setTitle:name forState:UIControlStateNormal];
+        
+        //保存呢称
+        account.name= name;
+        [AccountTool saveAccount:account];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"请求用户信息失败:%@",error);
+    }];
+    
+    
+    
+    
+}
+
+-(void)setupNav{
+
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(friendSearch) image:@"navigationbar_friendsearch" highImage:@"navigationbar_friendsearch_highlighted"];
     
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(pop) image:@"navigationbar_pop" highImage:@"navigationbar_pop_highlighted"];
     
     // 中间标题按钮
-    UIButton *titleButton = [[UIButton alloc]init];
-    [titleButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    titleButton.titleLabel.font = [UIFont boldSystemFontOfSize:17];
-    titleButton.width = 150;
-    titleButton.height = 30;
+    TitleButton *titleButton = [[TitleButton alloc]init];
     
-    [titleButton setTitle:@"首页" forState:UIControlStateNormal];
-    [titleButton setImage:[UIImage imageNamed:@"navigationbar_arrow_down"] forState:UIControlStateNormal];
-    [titleButton setImage:[UIImage imageNamed:@"navigationbar_arrow_up"] forState:UIControlStateSelected];
-    titleButton.imageEdgeInsets = UIEdgeInsetsMake(0, 70, 0, 0);
-    titleButton.titleEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 40);
+    NSString *name = [AccountTool account].name;
+    [titleButton setTitle:name?name:@"首页" forState:UIControlStateNormal];
     
     [titleButton addTarget:self action:@selector(titleClick:) forControlEvents:UIControlEventTouchUpInside];
-    
+
     self.navigationItem.titleView = titleButton;
+    
+    
+    //如果按钮内容的图片，文字固定，用以下方法设置间距比较简单
+    //    CGFloat titleW = titleButton.titleLabel.width;
+    //    CGFloat imageW = titleButton.imageView.width;
+    //    CGFloat left = titleW +imageW;
+    //    titleButton.imageEdgeInsets = UIEdgeInsetsMake(0, left+10, 0, 0);
+    //    titleButton.titleEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 40);
+
 }
 
 - (void)titleClick:(UIButton *)titleButton {
@@ -85,58 +131,5 @@
     return 0;
 }
 
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
-}
-*/
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

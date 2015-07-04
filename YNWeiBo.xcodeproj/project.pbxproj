@@ -20,6 +20,8 @@
 		AC29BD181B3FEDB200C60052 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC29BD161B3FEDB200C60052 /* LaunchScreen.xib */; };
 		AC29BD241B3FEDB200C60052 /* YNWeiBoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AC29BD231B3FEDB200C60052 /* YNWeiBoTests.m */; };
 		AC59FF1C1B478DB300F867B6 /* AccountTool.m in Sources */ = {isa = PBXBuildFile; fileRef = AC59FF1B1B478DB300F867B6 /* AccountTool.m */; };
+		AC59FF1F1B47941000F867B6 /* UIWindow+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = AC59FF1E1B47941000F867B6 /* UIWindow+Extension.m */; };
+		AC59FF221B47C98D00F867B6 /* TitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AC59FF211B47C98D00F867B6 /* TitleButton.m */; };
 		AC83CEB31B443649000F8A76 /* YNTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = AC83CEB21B443649000F8A76 /* YNTabBar.m */; };
 		AC83CEB61B444B9D000F8A76 /* NewfeatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC83CEB51B444B9D000F8A76 /* NewfeatureViewController.m */; };
 		AC9EF8F81B4006F5005317CF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9EF8F41B4006F5005317CF /* AppDelegate.m */; };
@@ -73,6 +75,10 @@
 		AC29BD231B3FEDB200C60052 /* YNWeiBoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YNWeiBoTests.m; sourceTree = "<group>"; };
 		AC59FF1A1B478DB300F867B6 /* AccountTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountTool.h; sourceTree = "<group>"; };
 		AC59FF1B1B478DB300F867B6 /* AccountTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountTool.m; sourceTree = "<group>"; };
+		AC59FF1D1B47941000F867B6 /* UIWindow+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+Extension.h"; sourceTree = "<group>"; };
+		AC59FF1E1B47941000F867B6 /* UIWindow+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+Extension.m"; sourceTree = "<group>"; };
+		AC59FF201B47C98D00F867B6 /* TitleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleButton.h; sourceTree = "<group>"; };
+		AC59FF211B47C98D00F867B6 /* TitleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleButton.m; sourceTree = "<group>"; };
 		AC83CEB11B443649000F8A76 /* YNTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YNTabBar.h; sourceTree = "<group>"; };
 		AC83CEB21B443649000F8A76 /* YNTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YNTabBar.m; sourceTree = "<group>"; };
 		AC83CEB41B444B9D000F8A76 /* NewfeatureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewfeatureViewController.h; sourceTree = "<group>"; };
@@ -175,6 +181,8 @@
 		AC01C3841B41968A007D0D40 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				AC59FF201B47C98D00F867B6 /* TitleButton.h */,
+				AC59FF211B47C98D00F867B6 /* TitleButton.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -210,6 +218,8 @@
 				AC01C38D1B41968A007D0D40 /* UIView+Extension.m */,
 				AC01C3A51B41987E007D0D40 /* UIBarButtonItem+Extension.h */,
 				AC01C3A61B41987E007D0D40 /* UIBarButtonItem+Extension.m */,
+				AC59FF1D1B47941000F867B6 /* UIWindow+Extension.h */,
+				AC59FF1E1B47941000F867B6 /* UIWindow+Extension.m */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -583,6 +593,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC83CEB61B444B9D000F8A76 /* NewfeatureViewController.m in Sources */,
+				AC59FF1F1B47941000F867B6 /* UIWindow+Extension.m in Sources */,
 				ACD073511B46F6EF00A1C55A /* Account.m in Sources */,
 				AC01C3A11B41968A007D0D40 /* UIView+Extension.m in Sources */,
 				AC83CEB31B443649000F8A76 /* YNTabBar.m in Sources */,
@@ -596,6 +607,7 @@
 				AC01C3A41B41968A007D0D40 /* ProfileViewController.m in Sources */,
 				ACD073111B46EE2300A1C55A /* OAuthViewController.m in Sources */,
 				AC01C3A71B41987E007D0D40 /* UIBarButtonItem+Extension.m in Sources */,
+				AC59FF221B47C98D00F867B6 /* TitleButton.m in Sources */,
 				ACD0735B1B46FB9500A1C55A /* MBProgressHUD.m in Sources */,
 				AC9EF8F81B4006F5005317CF /* AppDelegate.m in Sources */,
 				AC01C39D1B41968A007D0D40 /* DiscoverViewController.m in Sources */,

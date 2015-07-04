@@ -65,6 +65,10 @@
     return self.center.y;
 }
 
+-(CGFloat)centerX{
+    return self.center.x;
+}
+
 -(CGFloat)x{
     return self.frame.origin.x;
 }

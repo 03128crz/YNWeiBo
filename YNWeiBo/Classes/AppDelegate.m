@@ -12,6 +12,7 @@
 #import "OAuthViewController.h"
 #import "Account.h"
 #import "AccountTool.h"
+#import "UIWindow+Extension.h"
 
 #ifdef DEBUG
 #define YNLog(...) NSLog(__VA__ARGS__)
@@ -31,36 +32,18 @@
     
     self.window = [[UIWindow alloc]init];
     self.window.frame = [UIScreen mainScreen].bounds;
+    //makeKeyAndVisible 才会主窗口出现
+    [self.window makeKeyAndVisible];
     
-    
-    NSString *doc = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-    NSString *path = [doc stringByAppendingPathComponent:@"account.archive"];
-    
-    //NSDictionary *account = [NSDictionary dictionaryWithContentsOfFile:path];
-    //Account *account = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+    //帐号处理
     Account *account = [AccountTool account];
     
     if (account) {
-            //存储在沙盒中的版本号（上一次的使用版本）
-            NSString *lastVersion = [[NSUserDefaults standardUserDefaults] objectForKey:@"CFBundleVersion"];
-        
-            //当前软件的版本号(当前软件版本) Info.plist
-            NSString *currentVersion = [NSBundle mainBundle].infoDictionary[@"CFBundleVersion"];
-        
-            if ([currentVersion isEqualToString:lastVersion]) {
-                self.window.rootViewController = [[MainTabBarController alloc] init];
-            }else{
-                self.window.rootViewController = [NewfeatureViewController new];
-                //将当前的版本号存进沙盒
-                [[NSUserDefaults standardUserDefaults] setObject:currentVersion forKey:@"CFBundleVersion"];
-                [[NSUserDefaults standardUserDefaults] synchronize];
-            }
+            [self.window switchRootViewController];
     }else{
         self.window.rootViewController = [[OAuthViewController alloc]init];
     }
-    
-    [self.window makeKeyAndVisible];
-    
+
     return YES;
 }
 
