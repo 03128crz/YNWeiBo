@@ -12,6 +12,7 @@
 #import "NewfeatureViewController.h"
 #import "Account.h"
 #import "MBProgressHUD+MJ.h"
+#import "AccountTool.h"
 
 @interface OAuthViewController ()<UIWebViewDelegate>
 
@@ -85,12 +86,9 @@
     [mgr POST:@"https://api.weibo.com/oauth2/access_token" parameters:params success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
         NSLog(@"请求成功-%@",responseObject);
         
+          Account *account = [Account accountWithDict:responseObject];
         
-        NSString *doc = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-        NSString *path = [doc stringByAppendingPathComponent:@"account.archive"];
-        Account *account = [Account accountWithDict:responseObject];
-        //[responseObject writeToFile:path atomically:YES];
-        [NSKeyedArchiver archiveRootObject:account toFile:path];
+        [AccountTool saveAccount:account];
         
         //存储在沙盒中的版本号（上一次的使用版本）
         NSString *lastVersion = [[NSUserDefaults standardUserDefaults] objectForKey:@"CFBundleVersion"];

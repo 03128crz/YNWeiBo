@@ -11,6 +11,7 @@
 #import "NewfeatureViewController.h"
 #import "OAuthViewController.h"
 #import "Account.h"
+#import "AccountTool.h"
 
 #ifdef DEBUG
 #define YNLog(...) NSLog(__VA__ARGS__)
@@ -36,7 +37,8 @@
     NSString *path = [doc stringByAppendingPathComponent:@"account.archive"];
     
     //NSDictionary *account = [NSDictionary dictionaryWithContentsOfFile:path];
-    Account *account = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+    //Account *account = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+    Account *account = [AccountTool account];
     
     if (account) {
             //存储在沙盒中的版本号（上一次的使用版本）

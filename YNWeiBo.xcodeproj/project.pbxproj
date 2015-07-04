@@ -19,6 +19,7 @@
 		AC29BD151B3FEDB200C60052 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC29BD141B3FEDB200C60052 /* Images.xcassets */; };
 		AC29BD181B3FEDB200C60052 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC29BD161B3FEDB200C60052 /* LaunchScreen.xib */; };
 		AC29BD241B3FEDB200C60052 /* YNWeiBoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AC29BD231B3FEDB200C60052 /* YNWeiBoTests.m */; };
+		AC59FF1C1B478DB300F867B6 /* AccountTool.m in Sources */ = {isa = PBXBuildFile; fileRef = AC59FF1B1B478DB300F867B6 /* AccountTool.m */; };
 		AC83CEB31B443649000F8A76 /* YNTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = AC83CEB21B443649000F8A76 /* YNTabBar.m */; };
 		AC83CEB61B444B9D000F8A76 /* NewfeatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC83CEB51B444B9D000F8A76 /* NewfeatureViewController.m */; };
 		AC9EF8F81B4006F5005317CF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9EF8F41B4006F5005317CF /* AppDelegate.m */; };
@@ -70,6 +71,8 @@
 		AC29BD1D1B3FEDB200C60052 /* YNWeiBoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YNWeiBoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC29BD221B3FEDB200C60052 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC29BD231B3FEDB200C60052 /* YNWeiBoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YNWeiBoTests.m; sourceTree = "<group>"; };
+		AC59FF1A1B478DB300F867B6 /* AccountTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountTool.h; sourceTree = "<group>"; };
+		AC59FF1B1B478DB300F867B6 /* AccountTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountTool.m; sourceTree = "<group>"; };
 		AC83CEB11B443649000F8A76 /* YNTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YNTabBar.h; sourceTree = "<group>"; };
 		AC83CEB21B443649000F8A76 /* YNTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YNTabBar.m; sourceTree = "<group>"; };
 		AC83CEB41B444B9D000F8A76 /* NewfeatureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewfeatureViewController.h; sourceTree = "<group>"; };
@@ -351,6 +354,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		AC59FF191B478DA200F867B6 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				AC59FF1A1B478DB300F867B6 /* AccountTool.h */,
+				AC59FF1B1B478DB300F867B6 /* AccountTool.m */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
 		AC9EF8F21B4006F5005317CF /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -373,6 +385,7 @@
 		ACD0730C1B46EDEB00A1C55A /* OAuth */ = {
 			isa = PBXGroup;
 			children = (
+				AC59FF191B478DA200F867B6 /* Tool */,
 				ACD0730D1B46EDEB00A1C55A /* Controller */,
 				ACD0730E1B46EDEB00A1C55A /* Model */,
 			);
@@ -577,6 +590,7 @@
 				AC01C39F1B41968A007D0D40 /* MainTabBarController.m in Sources */,
 				AC9EF90D1B401FAB005317CF /* Test1ViewController.m in Sources */,
 				ACD8A6A81B42F86300B34D93 /* YNDropdownMenu.m in Sources */,
+				AC59FF1C1B478DB300F867B6 /* AccountTool.m in Sources */,
 				ACD073591B46FB9500A1C55A /* MBProgressHUD+MJ.m in Sources */,
 				AC01C3A21B41968A007D0D40 /* main.m in Sources */,
 				AC01C3A41B41968A007D0D40 /* ProfileViewController.m in Sources */,
