@@ -13,6 +13,7 @@
 #import "Account.h"
 #import "AccountTool.h"
 #import "UIWindow+Extension.h"
+#import "SDWebImageManager.h"
 
 #ifdef DEBUG
 #define YNLog(...) NSLog(__VA__ARGS__)
@@ -68,6 +69,14 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+-(void)applicationDidReceiveMemoryWarning:(UIApplication *)application{
+    //取消下载
+    SDWebImageManager *mgr = [SDWebImageManager sharedManager];
+    [mgr cancelAll];
+    //清除内存中的所有图片
+    [mgr.imageCache clearMemory];
 }
 
 @end

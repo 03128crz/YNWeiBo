@@ -13,9 +13,14 @@
 #import <AFNetworking.h>
 #import "AccountTool.h"
 #import "TitleButton.h"
+#import "UIImageView+WebCache.h"
+#import "Status.h"
+#import "User.h"
+#import "MJExtension.h"
 
 @interface HomeViewController ()<YNDropdownMenuDelegate>
-
+/** */
+@property(nonatomic,strong)NSMutableArray *statuses;
 @end
 
 @implementation HomeViewController
@@ -23,12 +28,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
     [self setupNav];
     
     [self setupUserInfo];
     
-    }
+    [self loadNewStatus];
+    
+    _statuses = [NSMutableArray array];
+    
+}
 
 -(void)setupUserInfo{
     
@@ -42,15 +50,14 @@
     params[@"uid"] = account.uid;
     
     [mgr GET:@"https://api.weibo.com/2/users/show.json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"用户信息:%@",responseObject);
         
-        NSString *name = responseObject[@"name"];
-        
+        User *user = [User objectWithKeyValues:responseObject];
+
         UIButton *titleButton = (UIButton *)self.navigationItem.titleView;
-        [titleButton setTitle:name forState:UIControlStateNormal];
+        [titleButton setTitle:user.name forState:UIControlStateNormal];
         
         //保存呢称
-        account.name= name;
+        account.name= user.name;
         [AccountTool saveAccount:account];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -88,6 +95,35 @@
 
 }
 
+-(void)loadNewStatus{
+    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
+    
+    Account *account = [AccountTool account];
+    
+    NSMutableDictionary *params =[NSMutableDictionary dictionary];
+    
+    params[@"access_token"] = account.access_token;
+
+    [mgr GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"最新动态:%@",responseObject);
+        
+//        NSArray *dictArray = responseObject[@"statuses"];
+//        
+//        for (NSDictionary *dict in dictArray) {
+//            Status *status = [Status objectWithKeyValues:dict];
+//            [self.statuses addObject:status];
+//        }
+        
+        self.statuses =[Status objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
+        
+        [self.tableView reloadData];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        //
+        NSLog(@"请求最新动态失败:%@",error);
+    }];
+}
+
 - (void)titleClick:(UIButton *)titleButton {
     
     YNDropdownMenu *menu = [YNDropdownMenu menu];
@@ -120,15 +156,31 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
+
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+
+    return self.statuses.count;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    static NSString *ID = @"status";
+    Status *status = [self.statuses objectAtIndex:indexPath.row];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    if (!cell) {
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
+    }
+    
+    User *user = status.user;
+    
+    cell.textLabel.text = user.name;
+    cell.detailTextLabel.text = status.text;
+    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:user.profile_image_url] placeholderImage:[UIImage imageNamed:@"avatar_default_small"]];
+    
+    return cell;
 }
 
 
