@@ -53,6 +53,9 @@
 		AC59FF821B4805C200F867B6 /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = AC59FF6F1B4805C200F867B6 /* UIView+MJExtension.m */; };
 		AC59FF851B481A7600F867B6 /* LoadMoreFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = AC59FF841B481A7600F867B6 /* LoadMoreFooter.m */; };
 		AC59FF871B481A8D00F867B6 /* LoadMoreFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC59FF861B481A8D00F867B6 /* LoadMoreFooter.xib */; };
+		AC59FF8A1B4837DD00F867B6 /* StatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC59FF891B4837DD00F867B6 /* StatusCell.m */; };
+		AC59FF8D1B483C7A00F867B6 /* StatusFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = AC59FF8C1B483C7A00F867B6 /* StatusFrame.m */; };
+		AC59FF901B48FD7E00F867B6 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = AC59FF8F1B48FD7E00F867B6 /* Photo.m */; };
 		AC83CEB31B443649000F8A76 /* YNTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = AC83CEB21B443649000F8A76 /* YNTabBar.m */; };
 		AC83CEB61B444B9D000F8A76 /* NewfeatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC83CEB51B444B9D000F8A76 /* NewfeatureViewController.m */; };
 		AC9EF8F81B4006F5005317CF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9EF8F41B4006F5005317CF /* AppDelegate.m */; };
@@ -172,6 +175,12 @@
 		AC59FF831B481A7600F867B6 /* LoadMoreFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadMoreFooter.h; sourceTree = "<group>"; };
 		AC59FF841B481A7600F867B6 /* LoadMoreFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadMoreFooter.m; sourceTree = "<group>"; };
 		AC59FF861B481A8D00F867B6 /* LoadMoreFooter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadMoreFooter.xib; sourceTree = "<group>"; };
+		AC59FF881B4837DD00F867B6 /* StatusCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusCell.h; sourceTree = "<group>"; };
+		AC59FF891B4837DD00F867B6 /* StatusCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusCell.m; sourceTree = "<group>"; };
+		AC59FF8B1B483C7A00F867B6 /* StatusFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusFrame.h; sourceTree = "<group>"; };
+		AC59FF8C1B483C7A00F867B6 /* StatusFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusFrame.m; sourceTree = "<group>"; };
+		AC59FF8E1B48FD7E00F867B6 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
+		AC59FF8F1B48FD7E00F867B6 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
 		AC83CEB11B443649000F8A76 /* YNTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YNTabBar.h; sourceTree = "<group>"; };
 		AC83CEB21B443649000F8A76 /* YNTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YNTabBar.m; sourceTree = "<group>"; };
 		AC83CEB41B444B9D000F8A76 /* NewfeatureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewfeatureViewController.h; sourceTree = "<group>"; };
@@ -271,6 +280,10 @@
 				AC59FF241B47D97200F867B6 /* User.m */,
 				AC59FF261B47D97B00F867B6 /* Status.h */,
 				AC59FF271B47D97B00F867B6 /* Status.m */,
+				AC59FF8B1B483C7A00F867B6 /* StatusFrame.h */,
+				AC59FF8C1B483C7A00F867B6 /* StatusFrame.m */,
+				AC59FF8E1B48FD7E00F867B6 /* Photo.h */,
+				AC59FF8F1B48FD7E00F867B6 /* Photo.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -283,6 +296,8 @@
 				AC59FF831B481A7600F867B6 /* LoadMoreFooter.h */,
 				AC59FF841B481A7600F867B6 /* LoadMoreFooter.m */,
 				AC59FF861B481A8D00F867B6 /* LoadMoreFooter.xib */,
+				AC59FF881B4837DD00F867B6 /* StatusCell.h */,
+				AC59FF891B4837DD00F867B6 /* StatusCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -826,6 +841,7 @@
 				AC83CEB31B443649000F8A76 /* YNTabBar.m in Sources */,
 				AC01C3A01B41968A007D0D40 /* YNNavigationController.m in Sources */,
 				AC59FF411B48058400F867B6 /* NSObject+MJProperty.m in Sources */,
+				AC59FF901B48FD7E00F867B6 /* Photo.m in Sources */,
 				AC59FF251B47D97200F867B6 /* User.m in Sources */,
 				AC59FF281B47D97B00F867B6 /* Status.m in Sources */,
 				AC01C39F1B41968A007D0D40 /* MainTabBarController.m in Sources */,
@@ -833,6 +849,7 @@
 				AC59FF421B48058400F867B6 /* NSString+MJExtension.m in Sources */,
 				AC59FF791B4805C200F867B6 /* MJRefreshBackNormalFooter.m in Sources */,
 				AC59FF7C1B4805C200F867B6 /* MJRefreshNormalHeader.m in Sources */,
+				AC59FF8A1B4837DD00F867B6 /* StatusCell.m in Sources */,
 				AC59FF3E1B48058400F867B6 /* MJType.m in Sources */,
 				AC59FF3B1B48058400F867B6 /* MJConst.m in Sources */,
 				AC59FF7A1B4805C200F867B6 /* MJRefreshBackStateFooter.m in Sources */,
@@ -863,6 +880,7 @@
 				AC59FF851B481A7600F867B6 /* LoadMoreFooter.m in Sources */,
 				AC01C39E1B41968A007D0D40 /* HomeViewController.m in Sources */,
 				AC59FF731B4805C200F867B6 /* MJRefreshFooter.m in Sources */,
+				AC59FF8D1B483C7A00F867B6 /* StatusFrame.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

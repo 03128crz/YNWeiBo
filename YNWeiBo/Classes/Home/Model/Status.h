@@ -16,4 +16,10 @@
 
 @property (nonatomic,strong)User *user;
 
+@property (nonatomic,copy)NSString *created_at;
+
+@property (nonatomic,copy)NSString *source;
+
+@property (nonatomic,strong)NSArray *pic_urls;
+
 @end

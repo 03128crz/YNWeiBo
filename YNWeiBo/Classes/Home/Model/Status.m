@@ -7,8 +7,13 @@
 //
 
 #import "Status.h"
-#import "User.h"
-
+#import "MJExtension.h"
+#import "Photo.h"
 @implementation Status
+
+-(NSDictionary *)objectClassInArray{
+    return @{@"pic_urls":[Photo class]};
+}
+
 
 @end

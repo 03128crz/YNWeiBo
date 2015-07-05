@@ -48,6 +48,11 @@
 //    
 //    return CGRectMake(x, y, width, height);
 //}
+//想在系统计算完和设置完按钮的尺寸后，再修改一下尺寸
+-(void)setFrame:(CGRect)frame{
+    frame.size.width +=10;
+    [super setFrame:frame];
+}
 
 -(void)layoutSubviews{
     [super layoutSubviews];
@@ -55,7 +60,7 @@
     //1.计算titleLabel
     self.titleLabel.x = self.imageView.x;
     //2.计算imageView
-    self.imageView.x = CGRectGetMaxX(self.titleLabel.frame);
+    self.imageView.x = CGRectGetMaxX(self.titleLabel.frame)+5;
     
 }
 

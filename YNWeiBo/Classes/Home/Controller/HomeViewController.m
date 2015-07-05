@@ -18,10 +18,12 @@
 #import "User.h"
 #import "MJExtension.h"
 #import "LoadMoreFooter.h"
+#import "StatusCell.h"
+#import "StatusFrame.h"
 
 @interface HomeViewController ()<YNDropdownMenuDelegate>
 /** */
-@property(nonatomic,strong)NSMutableArray *statuses;
+@property(nonatomic,strong)NSMutableArray *statuseFrames;
 @end
 
 @implementation HomeViewController
@@ -36,13 +38,14 @@
     [self setupDownRefresh];
     
     [self setupUpRefresh];
+    
     //在主线程中，如果一直滚动不会触发
     //程序进入后台，定时器会暂停运行
-    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(setupUnreadCount) userInfo:nil repeats:YES];
+    //NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(setupUnreadCount) userInfo:nil repeats:YES];
     //主线程抽时间处理timer
-    [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+    //[[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
 
-    _statuses = [NSMutableArray array];
+    _statuseFrames = [NSMutableArray array];
     
 }
 
@@ -159,24 +162,56 @@
     
     NSMutableDictionary *params =[NSMutableDictionary dictionary];
     //只刷新最新的
-    Status *firstStatus = [self.statuses firstObject];
-    if (firstStatus) {
-        params[@"since_id"] = firstStatus.idstr;
+    StatusFrame *firstStatusF = [self.statuseFrames firstObject];
+    if (firstStatusF) {
+        params[@"since_id"] = firstStatusF.status.idstr;
     }
     params[@"access_token"] = account.access_token;
     
     
     [mgr GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSArray *newStatues = [Status objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
-        NSRange range = NSMakeRange(0, newStatues.count);
+        
+        NSArray *newFrames = [self statusFramesWithStatuses:newStatues];
+        
+        NSRange range = NSMakeRange(0, newFrames.count);
         NSIndexSet *set = [NSIndexSet indexSetWithIndexesInRange:range];
-        [self.statuses insertObjects:newStatues atIndexes:set];
+        [self.statuseFrames insertObjects:newFrames atIndexes:set];
         [self.tableView reloadData];
         [control endRefreshing];
         [self showNewStatusCount:newStatues.count];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         //
         [control endRefreshing];
+    }];
+}
+
+-(void)loadMoreStatus{
+    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
+    
+    Account *account = [AccountTool account];
+    
+    NSMutableDictionary *params =[NSMutableDictionary dictionary];
+    //取出最后面的
+    StatusFrame *lastStatusF = [self.statuseFrames lastObject];
+    if (lastStatusF) {
+        long long maxId = lastStatusF.status.idstr.longLongValue -1;
+        params[@"max_id"] = @(maxId);
+    }
+    params[@"access_token"] = account.access_token;
+
+    [mgr GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSArray *newsStatuses = [Status objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
+        
+        NSArray *newFrames = [self statusFramesWithStatuses:newsStatuses];
+        
+        [self.statuseFrames addObjectsFromArray:newFrames];
+        
+        [self.tableView reloadData];
+        self.tableView.tableFooterView.hidden = YES;
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"加载更多数据失败:%@",error);
+        self.tableView.tableFooterView.hidden = YES;
     }];
 }
 
@@ -258,25 +293,46 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return self.statuses.count;
+    return self.statuseFrames.count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString *ID = @"status";
-    Status *status = [self.statuses objectAtIndex:indexPath.row];
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    if (!cell) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
-    }
     
-    User *user = status.user;
+    StatusCell *cell = [StatusCell cellWithTableView:tableView];
     
-    cell.textLabel.text = user.name;
-    cell.detailTextLabel.text = status.text;
-    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:user.profile_image_url] placeholderImage:[UIImage imageNamed:@"avatar_default_small"]];
+    cell.statusFrame = self.statuseFrames[indexPath.row];
     
     return cell;
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    StatusFrame *frame = self.statuseFrames[indexPath.row];
+    return frame.cellHeight;
+}
+
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    if (self.statuseFrames.count==0 || self.tableView.tableFooterView.isHidden==NO) {
+        return;
+    }
+    
+    CGFloat offsetY = scrollView.contentOffset.y;
+    CGFloat judgeOffsetY = scrollView.contentSize.height + scrollView.contentInset.bottom-scrollView.height-self.tableView.tableFooterView.height;
+    if (offsetY>=judgeOffsetY) {
+        self.tableView.tableFooterView.height=NO;
+        [self loadMoreStatus];
+    }
+}
+
+//将Statuss模型转为StatusFrame模型
+-(NSArray *)statusFramesWithStatuses:(NSArray *)statuses{
+    NSMutableArray *frames =[NSMutableArray array];
+    for (Status *status in statuses) {
+        StatusFrame *f = [StatusFrame new];
+        f.status = status;
+        [frames addObject:f];
+    }
+    
+    return frames;
+}
 
 @end
