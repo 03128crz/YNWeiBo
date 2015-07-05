@@ -30,7 +30,11 @@
 /** 内容*/
 @property(nonatomic,weak)UILabel *contentLabel;
 
-
+/** 转发微博 */
+@property(nonatomic,weak)UIView *retweetView;
+/** 转发微博内容+呢称*/
+@property(nonatomic,weak)UILabel *retweetContentLabel;
+@property(nonatomic,weak)UIImageView *retweetPhotoView;
 @end
 
 @implementation StatusCell
@@ -50,48 +54,72 @@
     self= [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         //原创微博整体
+        [self setupOriginal];
         
-        UIView *originalView = [UIView new];
-        [self.contentView addSubview:originalView];
-        self.originalView = originalView;
+        //转发微博
+        [self setupRetweet];
         
-        UIImageView *iconView = [UIImageView new];
-        [self.originalView addSubview:iconView];
-        self.iconView = iconView;
-        
-        UIImageView *viplView = [UIImageView new];
-        viplView.contentMode =UIViewContentModeCenter;
-        [self.originalView addSubview:viplView];
-        self.vipView = viplView;
-        
-        UIImageView *photoView = [UIImageView new];
-        [self.originalView addSubview:photoView];
-        self.photoView = photoView;
-        
-        UILabel *nameLabel = [UILabel new];
-        nameLabel.font = IWstatusCellNameFont;
-        [self.originalView addSubview:nameLabel];
-        self.nameLabel = nameLabel;
-        
-        UILabel *timeLabel = [UILabel new];
-        timeLabel.font = IWstatusCellTimeFont;
-        [self.originalView addSubview:timeLabel];
-        self.timeLabel = timeLabel;
-        
-        UILabel *sourceLabel = [UILabel new];
-        sourceLabel.font = IWstatusCellSourceFont;
-        [self.originalView addSubview:sourceLabel];
-        self.sourceLabel = sourceLabel;
-        
-        UILabel *contentLabel = [UILabel new];
-        contentLabel.font = IWstatusCellContentFont;
-        contentLabel.numberOfLines = 0;
-        [self.originalView addSubview:contentLabel];
-        self.contentLabel = contentLabel;
         
     }
     
     return self;
+}
+
+-(void)setupRetweet{
+    UIView *retweetView = [UIView new];
+    retweetView.backgroundColor = [UIColor colorWithRed:(247)/255.0 green:(247)/255.0 blue:(247)/255.0 alpha:1.0];
+    [self.contentView addSubview:retweetView];
+    self.retweetView = retweetView;
+    
+    UILabel *retweetContentLabel = [UILabel new];
+    retweetContentLabel.font = IWstatusCellRetweetContentFont;
+    retweetContentLabel.numberOfLines = 0;
+    [self.retweetView addSubview:retweetContentLabel];
+    self.retweetContentLabel = retweetContentLabel;
+    
+    UIImageView *retweetPhotoView = [UIImageView new];
+    [self.retweetView addSubview:retweetPhotoView];
+    self.retweetPhotoView = retweetPhotoView;
+}
+
+-(void)setupOriginal{
+    UIView *originalView = [UIView new];
+    [self.contentView addSubview:originalView];
+    self.originalView = originalView;
+    
+    UIImageView *iconView = [UIImageView new];
+    [self.originalView addSubview:iconView];
+    self.iconView = iconView;
+    
+    UIImageView *viplView = [UIImageView new];
+    viplView.contentMode =UIViewContentModeCenter;
+    [self.originalView addSubview:viplView];
+    self.vipView = viplView;
+    
+    UIImageView *photoView = [UIImageView new];
+    [self.originalView addSubview:photoView];
+    self.photoView = photoView;
+    
+    UILabel *nameLabel = [UILabel new];
+    nameLabel.font = IWstatusCellNameFont;
+    [self.originalView addSubview:nameLabel];
+    self.nameLabel = nameLabel;
+    
+    UILabel *timeLabel = [UILabel new];
+    timeLabel.font = IWstatusCellTimeFont;
+    [self.originalView addSubview:timeLabel];
+    self.timeLabel = timeLabel;
+    
+    UILabel *sourceLabel = [UILabel new];
+    sourceLabel.font = IWstatusCellSourceFont;
+    [self.originalView addSubview:sourceLabel];
+    self.sourceLabel = sourceLabel;
+    
+    UILabel *contentLabel = [UILabel new];
+    contentLabel.font = IWstatusCellContentFont;
+    contentLabel.numberOfLines = 0;
+    [self.originalView addSubview:contentLabel];
+    self.contentLabel = contentLabel;
 }
 
 - (void)awakeFromNib {
@@ -153,7 +181,34 @@
     
     self.contentLabel.text = status.text;
     self.contentLabel.frame = statusFrame.contentLabelF;
+    
+    /** 被转发微博整体 */
+    if (status.retweeted_status) {
+        
+        Status *retweeted_status = status.retweeted_status;
+        User *retweeted_status_user = retweeted_status.user;
+        
+        self.retweetView.hidden = NO;
+        self.retweetView.frame = statusFrame.retweetViewF;
+        
+        NSString *retweetContent = [NSString stringWithFormat:@"@%@ : %@",retweeted_status_user.name,retweeted_status.text];
+        self.retweetContentLabel.text = retweetContent;
+        self.retweetContentLabel.frame = statusFrame.retweetContentLabelF;
+        
+        if (retweeted_status.pic_urls.count) {
+            self.retweetPhotoView.frame = statusFrame.retweetPhotoViewF;
 
+            NSDictionary *photo =[retweeted_status.pic_urls lastObject];
+            [self.retweetPhotoView sd_setImageWithURL:[NSURL URLWithString:photo[@"thumbnail_pic"]] placeholderImage:[UIImage imageNamed:@"timeline_image_placeholder"]];
+            self.retweetPhotoView.hidden = NO;
+
+        }else{
+            self.retweetPhotoView.hidden  =YES;
+        }
+        
+    }else{
+        self.retweetView.hidden = YES;
+    }
     
 }
 

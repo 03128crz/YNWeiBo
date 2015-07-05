@@ -13,6 +13,7 @@
 #define IWstatusCellTimeFont  [UIFont systemFontOfSize:12]
 #define IWstatusCellSourceFont  [UIFont systemFontOfSize:12]
 #define IWstatusCellContentFont  [UIFont systemFontOfSize:14]
+#define IWstatusCellRetweetContentFont  [UIFont systemFontOfSize:13]
 
 @class Status;
 @class User;
@@ -36,6 +37,12 @@
 @property(nonatomic,assign) CGRect sourceLabelF;
 /** 内容*/
 @property(nonatomic,assign) CGRect contentLabelF;
+
+/** 转发微博 */
+@property(nonatomic,assign)CGRect retweetViewF;
+/** 转发微博内容+呢称*/
+@property(nonatomic,assign)CGRect retweetContentLabelF;
+@property(nonatomic,assign)CGRect retweetPhotoViewF;
 
 @property(nonatomic,assign)CGFloat cellHeight;
 

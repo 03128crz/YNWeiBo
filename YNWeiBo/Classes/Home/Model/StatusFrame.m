@@ -25,6 +25,7 @@
     CGFloat iconY = IWstatusCellBorderW;
     self.iconViewF = CGRectMake(iconX, iconY, iconWH, iconWH);
     
+    CGFloat cellW = [UIScreen mainScreen].bounds.size.width;
     
     CGFloat nameX = CGRectGetMaxX(self.iconViewF) + IWstatusCellBorderW;
     CGFloat nameY = iconY;
@@ -67,11 +68,46 @@
     }else{
         origianH = CGRectGetMaxY(self.contentLabelF) +IWstatusCellBorderW;
     }
-
-    CGFloat origianW = [UIScreen mainScreen].bounds.size.width;
     
+    
+    CGFloat origianW = [UIScreen mainScreen].bounds.size.width;
     self.originalViewF = CGRectMake(0, 0, origianW, origianH);
-    self.cellHeight = CGRectGetMaxY(self.originalViewF);
+    
+    if (status.retweeted_status) {
+        /** 被转发微博 */
+        
+        Status *retweeted_status = status.retweeted_status;
+        User *retweeted_status_user = retweeted_status.user;
+        
+        CGFloat retweetContentX = IWstatusCellBorderW;
+        CGFloat retweetContentY = IWstatusCellBorderW;
+        NSString *retweetContent = [NSString stringWithFormat:@"@%@ : %@",retweeted_status_user.name,retweeted_status.text];
+        
+        CGSize retweetContentSize = [self sizeWithText:retweetContent font:IWstatusCellRetweetContentFont maxW:maxW];
+        self.retweetContentLabelF = (CGRect){{retweetContentX,retweetContentY},retweetContentSize};
+        
+        CGFloat retweetH = 0;
+        if (retweeted_status.pic_urls.count) {
+            CGFloat photoX = retweetContentX;
+            CGFloat photoY = CGRectGetMaxY(self.retweetContentLabelF)+IWstatusCellBorderW;
+            CGFloat photoWH = 100;
+            self.retweetPhotoViewF = CGRectMake(photoX, photoY, photoWH, photoWH);
+            
+            retweetH = CGRectGetMaxY(self.retweetPhotoViewF)+IWstatusCellBorderW;
+        }else{
+            retweetH = CGRectGetMaxY(self.retweetContentLabelF)+IWstatusCellBorderW;
+        }
+        
+        self.retweetViewF = CGRectMake(0, CGRectGetMaxY(self.originalViewF), cellW, retweetH);
+        
+        self.cellHeight = CGRectGetMaxY(self.retweetViewF);
+        
+    }else{
+            self.cellHeight = CGRectGetMaxY(self.originalViewF);
+    }
+
+    
+
     
     
     

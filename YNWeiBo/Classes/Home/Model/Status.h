@@ -22,4 +22,7 @@
 
 @property (nonatomic,strong)NSArray *pic_urls;
 
+/** 被转发的微博 */
+@property (nonatomic,strong)Status *retweeted_status;
+
 @end
