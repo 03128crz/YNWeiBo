@@ -56,6 +56,7 @@
 		AC59FF8A1B4837DD00F867B6 /* StatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AC59FF891B4837DD00F867B6 /* StatusCell.m */; };
 		AC59FF8D1B483C7A00F867B6 /* StatusFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = AC59FF8C1B483C7A00F867B6 /* StatusFrame.m */; };
 		AC59FF901B48FD7E00F867B6 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = AC59FF8F1B48FD7E00F867B6 /* Photo.m */; };
+		AC59FF931B497CE800F867B6 /* StatusToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = AC59FF921B497CE800F867B6 /* StatusToolbar.m */; };
 		AC83CEB31B443649000F8A76 /* YNTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = AC83CEB21B443649000F8A76 /* YNTabBar.m */; };
 		AC83CEB61B444B9D000F8A76 /* NewfeatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC83CEB51B444B9D000F8A76 /* NewfeatureViewController.m */; };
 		AC9EF8F81B4006F5005317CF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9EF8F41B4006F5005317CF /* AppDelegate.m */; };
@@ -181,6 +182,8 @@
 		AC59FF8C1B483C7A00F867B6 /* StatusFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusFrame.m; sourceTree = "<group>"; };
 		AC59FF8E1B48FD7E00F867B6 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
 		AC59FF8F1B48FD7E00F867B6 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
+		AC59FF911B497CE800F867B6 /* StatusToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusToolbar.h; sourceTree = "<group>"; };
+		AC59FF921B497CE800F867B6 /* StatusToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusToolbar.m; sourceTree = "<group>"; };
 		AC83CEB11B443649000F8A76 /* YNTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YNTabBar.h; sourceTree = "<group>"; };
 		AC83CEB21B443649000F8A76 /* YNTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YNTabBar.m; sourceTree = "<group>"; };
 		AC83CEB41B444B9D000F8A76 /* NewfeatureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewfeatureViewController.h; sourceTree = "<group>"; };
@@ -298,6 +301,8 @@
 				AC59FF861B481A8D00F867B6 /* LoadMoreFooter.xib */,
 				AC59FF881B4837DD00F867B6 /* StatusCell.h */,
 				AC59FF891B4837DD00F867B6 /* StatusCell.m */,
+				AC59FF911B497CE800F867B6 /* StatusToolbar.h */,
+				AC59FF921B497CE800F867B6 /* StatusToolbar.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -871,6 +876,7 @@
 				AC59FF821B4805C200F867B6 /* UIView+MJExtension.m in Sources */,
 				AC01C39D1B41968A007D0D40 /* DiscoverViewController.m in Sources */,
 				AC59FF401B48058400F867B6 /* NSObject+MJKeyValue.m in Sources */,
+				AC59FF931B497CE800F867B6 /* StatusToolbar.m in Sources */,
 				AC01C3A31B41968A007D0D40 /* MessageCenterViewController.m in Sources */,
 				AC59FF741B4805C200F867B6 /* MJRefreshHeader.m in Sources */,
 				AC59FF7D1B4805C200F867B6 /* MJRefreshStateHeader.m in Sources */,

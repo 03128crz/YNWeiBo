@@ -11,6 +11,8 @@
 #import "UIImageView+WebCache.h"
 #import "User.h"
 #import "Status.h"
+#import "UIView+Extension.h"
+#import "StatusToolbar.h"
 
 @interface StatusCell ()
 /** 原创微博 */
@@ -35,6 +37,10 @@
 /** 转发微博内容+呢称*/
 @property(nonatomic,weak)UILabel *retweetContentLabel;
 @property(nonatomic,weak)UIImageView *retweetPhotoView;
+
+/** 工具条 */
+@property (nonatomic,weak)StatusToolbar *toolbar;
+
 @end
 
 @implementation StatusCell
@@ -53,16 +59,33 @@
     
     self= [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
+        //点击cell不要变色
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
+        self.backgroundColor = [UIColor clearColor];
+        
         //原创微博整体
         [self setupOriginal];
         
         //转发微博
         [self setupRetweet];
         
+        [self setupToolbar];
         
     }
     
     return self;
+}
+
+//-(void)setFrame:(CGRect)frame{
+//    frame.origin.y +=15;
+//    [super setFrame:frame];
+//}
+
+-(void)setupToolbar{
+    
+    StatusToolbar *toolbar = [StatusToolbar toolbar];
+    [self.contentView addSubview:toolbar];
+    self.toolbar = toolbar;
 }
 
 -(void)setupRetweet{
@@ -84,6 +107,7 @@
 
 -(void)setupOriginal{
     UIView *originalView = [UIView new];
+    originalView.backgroundColor = [UIColor whiteColor];
     [self.contentView addSubview:originalView];
     self.originalView = originalView;
     
@@ -209,6 +233,10 @@
     }else{
         self.retweetView.hidden = YES;
     }
+    
+    /** 工具条 */
+    self.toolbar.frame = statusFrame.toolbarF;
+    self.toolbar.status = status;
     
 }
 

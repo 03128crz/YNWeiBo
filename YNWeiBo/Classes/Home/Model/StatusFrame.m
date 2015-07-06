@@ -11,6 +11,7 @@
 #import "User.h"
 
 #define IWstatusCellBorderW 10
+#define IWstatusCellMargin 15
 
 
 @implementation StatusFrame
@@ -71,10 +72,11 @@
     
     
     CGFloat origianW = [UIScreen mainScreen].bounds.size.width;
-    self.originalViewF = CGRectMake(0, 0, origianW, origianH);
+    self.originalViewF = CGRectMake(0, IWstatusCellMargin, origianW, origianH);
     
+    CGFloat toolbarY =0;
+    /** 被转发微博 */
     if (status.retweeted_status) {
-        /** 被转发微博 */
         
         Status *retweeted_status = status.retweeted_status;
         User *retweeted_status_user = retweeted_status.user;
@@ -100,15 +102,19 @@
         
         self.retweetViewF = CGRectMake(0, CGRectGetMaxY(self.originalViewF), cellW, retweetH);
         
-        self.cellHeight = CGRectGetMaxY(self.retweetViewF);
+        toolbarY = CGRectGetMaxY(self.retweetViewF);
         
     }else{
-            self.cellHeight = CGRectGetMaxY(self.originalViewF);
+       toolbarY = CGRectGetMaxY(self.originalViewF);
     }
 
+    CGFloat toolbarX = 0;
+    CGFloat toolbarW = cellW;
+    CGFloat toobarH = 35;
     
-
+    self.toolbarF = CGRectMake(toolbarX, toolbarY, toolbarW, toobarH);
     
+    self.cellHeight = CGRectGetMaxY(self.toolbarF);
     
     
 }

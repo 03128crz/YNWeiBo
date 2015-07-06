@@ -44,6 +44,8 @@
 @property(nonatomic,assign)CGRect retweetContentLabelF;
 @property(nonatomic,assign)CGRect retweetPhotoViewF;
 
+@property(nonatomic,assign)CGRect toolbarF;
+
 @property(nonatomic,assign)CGFloat cellHeight;
 
 @end

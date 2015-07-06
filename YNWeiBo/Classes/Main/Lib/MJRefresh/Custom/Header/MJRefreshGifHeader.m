@@ -14,6 +14,7 @@
 @property (strong, nonatomic) NSMutableDictionary *stateImages;
 /** 所有状态对应的动画时间 */
 @property (strong, nonatomic) NSMutableDictionary *stateDurations;
+
 @end
 
 @implementation MJRefreshGifHeader

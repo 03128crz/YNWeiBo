@@ -31,6 +31,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.tableView.backgroundColor = [UIColor colorWithRed:211/255.0 green:211/255.0 blue:211/255.0 alpha:1.0];
+    //self.tableView.contentInset = UIEdgeInsetsMake(15, 0, 0, 0);
+    
     [self setupNav];
     
     [self setupUserInfo];
