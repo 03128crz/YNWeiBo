@@ -14,12 +14,13 @@
 #import "UIView+Extension.h"
 #import "StatusToolbar.h"
 #import "StausPhotosView.h"
+#import "IconView.h"
 
 @interface StatusCell ()
 /** 原创微博 */
 @property(nonatomic,weak)UIView *originalView;
 /** 头像 */
-@property(nonatomic,weak)UIImageView *iconView;
+@property(nonatomic,weak)IconView *iconView;
 /** vip图标 */
 @property(nonatomic,weak)UIImageView *vipView;
 /** 配图 */
@@ -112,7 +113,7 @@
     [self.contentView addSubview:originalView];
     self.originalView = originalView;
     
-    UIImageView *iconView = [UIImageView new];
+    IconView *iconView = [IconView new];
     [self.originalView addSubview:iconView];
     self.iconView = iconView;
     
@@ -168,8 +169,7 @@
     self.originalView.frame = statusFrame.originalViewF;
     
     self.iconView.frame =statusFrame.iconViewF;
-    [self.iconView sd_setImageWithURL:[NSURL URLWithString:user.profile_image_url]placeholderImage:[UIImage imageNamed:@"avatar_default_small"]];
-    
+    self.iconView.user = user;
     
     if (user.isVip) {
         self.vipView.hidden = NO;

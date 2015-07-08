@@ -16,6 +16,8 @@
 		AC01C3A31B41968A007D0D40 /* MessageCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC01C3941B41968A007D0D40 /* MessageCenterViewController.m */; };
 		AC01C3A41B41968A007D0D40 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC01C39A1B41968A007D0D40 /* ProfileViewController.m */; };
 		AC01C3A71B41987E007D0D40 /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = AC01C3A61B41987E007D0D40 /* UIBarButtonItem+Extension.m */; };
+		AC03AFE81B4D6CAE00239781 /* StatusPhtotView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC03AFE71B4D6CAE00239781 /* StatusPhtotView.m */; };
+		AC03AFEB1B4D7AA400239781 /* IconView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC03AFEA1B4D7AA400239781 /* IconView.m */; };
 		AC29BD151B3FEDB200C60052 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC29BD141B3FEDB200C60052 /* Images.xcassets */; };
 		AC29BD181B3FEDB200C60052 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC29BD161B3FEDB200C60052 /* LaunchScreen.xib */; };
 		AC29BD241B3FEDB200C60052 /* YNWeiBoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AC29BD231B3FEDB200C60052 /* YNWeiBoTests.m */; };
@@ -103,6 +105,10 @@
 		AC01C39A1B41968A007D0D40 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		AC01C3A51B41987E007D0D40 /* UIBarButtonItem+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Extension.h"; sourceTree = "<group>"; };
 		AC01C3A61B41987E007D0D40 /* UIBarButtonItem+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Extension.m"; sourceTree = "<group>"; };
+		AC03AFE61B4D6CAE00239781 /* StatusPhtotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusPhtotView.h; sourceTree = "<group>"; };
+		AC03AFE71B4D6CAE00239781 /* StatusPhtotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusPhtotView.m; sourceTree = "<group>"; };
+		AC03AFE91B4D7AA400239781 /* IconView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IconView.h; sourceTree = "<group>"; };
+		AC03AFEA1B4D7AA400239781 /* IconView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IconView.m; sourceTree = "<group>"; };
 		AC29BD041B3FEDB200C60052 /* YNWeiBo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YNWeiBo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC29BD081B3FEDB200C60052 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC29BD141B3FEDB200C60052 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -311,6 +317,8 @@
 				AC59FF921B497CE800F867B6 /* StatusToolbar.m */,
 				ACA653C61B4C1F2300C4333E /* StausPhotosView.h */,
 				ACA653C71B4C1F2300C4333E /* StausPhotosView.m */,
+				AC03AFE61B4D6CAE00239781 /* StatusPhtotView.h */,
+				AC03AFE71B4D6CAE00239781 /* StatusPhtotView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -368,6 +376,8 @@
 				ACD8A6A71B42F86300B34D93 /* YNDropdownMenu.m */,
 				AC83CEB11B443649000F8A76 /* YNTabBar.h */,
 				AC83CEB21B443649000F8A76 /* YNTabBar.m */,
+				AC03AFE91B4D7AA400239781 /* IconView.h */,
+				AC03AFEA1B4D7AA400239781 /* IconView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -888,11 +898,13 @@
 				AC01C39D1B41968A007D0D40 /* DiscoverViewController.m in Sources */,
 				AC59FF401B48058400F867B6 /* NSObject+MJKeyValue.m in Sources */,
 				AC59FF931B497CE800F867B6 /* StatusToolbar.m in Sources */,
+				AC03AFEB1B4D7AA400239781 /* IconView.m in Sources */,
 				AC01C3A31B41968A007D0D40 /* MessageCenterViewController.m in Sources */,
 				AC59FF741B4805C200F867B6 /* MJRefreshHeader.m in Sources */,
 				ACD3CCF91B4ACFCE00BA5241 /* NSDate+Extension.m in Sources */,
 				AC59FF7D1B4805C200F867B6 /* MJRefreshStateHeader.m in Sources */,
 				AC59FF3C1B48058400F867B6 /* MJFoundation.m in Sources */,
+				AC03AFE81B4D6CAE00239781 /* StatusPhtotView.m in Sources */,
 				AC59FF811B4805C200F867B6 /* UIScrollView+MJRefresh.m in Sources */,
 				AC59FF701B4805C200F867B6 /* MJRefreshAutoFooter.m in Sources */,
 				AC59FF851B481A7600F867B6 /* LoadMoreFooter.m in Sources */,

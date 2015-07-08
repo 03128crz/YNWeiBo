@@ -8,8 +8,8 @@
 
 #import "StausPhotosView.h"
 #import "Photo.h"
-#import "UIImageView+WebCache.h"
 #import "UIView+Extension.h"
+#import "StatusPhtotView.h"
 
 #define StatusPhtotMargin 10
 #define StatusPhtotWH 70
@@ -34,20 +34,18 @@
         
     }else{
         while (self.subviews.count<photos.count) {
-            UIImageView *photoView= [[UIImageView alloc]init];
+            StatusPhtotView *photoView= [[StatusPhtotView alloc]init];
             [self addSubview:photoView];
         }
     }
  
     for (NSInteger i = 0; i<self.subviews.count; i++) {
-        UIImageView *photoView = self.subviews[i];
+        StatusPhtotView *photoView = self.subviews[i];
 
         if (i<photos.count) {//显示
             
-            NSDictionary *photo = photos[i];
-            
-            [photoView sd_setImageWithURL:[NSURL URLWithString:photo[@"thumbnail_pic"]] placeholderImage:[UIImage imageNamed:@"timeline_image_placeholder"]];
-            
+            photoView.photo = photos[i];
+
             photoView.hidden = NO;
         }else{
             photoView.hidden  =YES;
@@ -62,7 +60,7 @@
     
     // 设置图片的尺寸和位置
     for (int i =0; i<self.photos.count; i++) {
-        UIImageView *photoView = self.subviews[i];
+        StatusPhtotView *photoView = self.subviews[i];
         
         int col = i%3;
         
