@@ -9,13 +9,28 @@
 #import "Status.h"
 #import "MJExtension.h"
 #import "Photo.h"
+#import "NSDate+Extension.h"
+
 @implementation Status
 
 -(NSDictionary *)objectClassInArray{
     return @{@"pic_urls":[Photo class]};
 }
 
+//来源不变，用set
+-(void)setSource:(NSString *)source{
+    
+    NSRange range;
+    
+    range.location = [source rangeOfString:@">"].location +1;
+    
+    range.length = [source rangeOfString:@"</"].location - range.location;
+    
+    _source = [NSString stringWithFormat:@"来自 %@",[source substringWithRange:range]];
+    
+}
 
+//显示的时间时时变，用get
 -(NSString *)created_at{
     
     NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
@@ -34,11 +49,11 @@
     
     NSDateComponents *components = [calendar components:unit fromDate:createDate toDate:now options:0];
     
-    if ( [self isThisYear:createDate ]) {
-        if ([self isYesterday:createDate]) {
+    if ( createDate.isThisYear) {
+        if (createDate.isYesterday) {
             fmt.dateFormat = @"昨天 HH:mm";
             return [fmt stringFromDate:createDate];
-        } else if([self isToday:createDate]){
+        } else if(createDate.isToday){
             if (components.hour>=1) {
                 return [NSString stringWithFormat:@"%ld小时前",(long)components.hour];
             }else if (components.minute>=1){
@@ -59,48 +74,6 @@
     
 }
 
--(BOOL)isThisYear:(NSDate *)date{
-    
-    NSCalendar *calendar = [NSCalendar currentCalendar];
-    
-    NSDateComponents *dateCmps = [calendar components:NSCalendarUnitYear fromDate:date];
-    
-    NSDateComponents *nowCmps = [calendar components:NSCalendarUnitYear fromDate:[NSDate date]];
-    
-    return dateCmps.year ==nowCmps.year;
-}
 
--(BOOL)isYesterday:(NSDate *)date{
-    NSDateFormatter *fmt = [[NSDateFormatter alloc]init];
-    fmt.dateFormat = @"yyyy-MM-dd";
-    
-    NSString *dateStr = [fmt stringFromDate:date];
-    
-    NSString *nowStr = [fmt stringFromDate:[NSDate date]];
-    
-    date = [fmt dateFromString:dateStr];
-    
-    NSDate *now = [fmt dateFromString:nowStr];
-    
-    NSCalendar *calendar = [NSCalendar currentCalendar];
-    
-    NSCalendarUnit unit = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay;
-    
-    NSDateComponents *cmps = [calendar components:unit fromDate:date toDate:now options:0];
-    
-    return cmps.day==0 && cmps.month ==0 && cmps.day==1;
-}
-
--(BOOL)isToday:(NSDate *)date{
-    
-    NSDate *now = [NSDate date];
-    NSDateFormatter *fmt = [[NSDateFormatter alloc]init];
-    fmt.dateFormat = @"yyyy-MM-dd";
-    
-    NSString *dateStr = [fmt stringFromDate:date];
-    NSString *nowStr = [fmt stringFromDate:now];
-    
-    return [dateStr isEqualToString:nowStr];
-}
 
 @end

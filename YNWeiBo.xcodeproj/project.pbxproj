@@ -61,11 +61,13 @@
 		AC83CEB61B444B9D000F8A76 /* NewfeatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC83CEB51B444B9D000F8A76 /* NewfeatureViewController.m */; };
 		AC9EF8F81B4006F5005317CF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9EF8F41B4006F5005317CF /* AppDelegate.m */; };
 		AC9EF90D1B401FAB005317CF /* Test1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9EF90C1B401FAB005317CF /* Test1ViewController.m */; };
+		ACA653C81B4C1F2300C4333E /* StausPhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = ACA653C71B4C1F2300C4333E /* StausPhotosView.m */; };
 		ACD073111B46EE2300A1C55A /* OAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD073101B46EE2300A1C55A /* OAuthViewController.m */; };
 		ACD073511B46F6EF00A1C55A /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD073501B46F6EF00A1C55A /* Account.m */; };
 		ACD073591B46FB9500A1C55A /* MBProgressHUD+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD073551B46FB9500A1C55A /* MBProgressHUD+MJ.m */; };
 		ACD0735A1B46FB9500A1C55A /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = ACD073561B46FB9500A1C55A /* MBProgressHUD.bundle */; };
 		ACD0735B1B46FB9500A1C55A /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD073581B46FB9500A1C55A /* MBProgressHUD.m */; };
+		ACD3CCF91B4ACFCE00BA5241 /* NSDate+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD3CCF81B4ACFCE00BA5241 /* NSDate+Extension.m */; };
 		ACD8A6A81B42F86300B34D93 /* YNDropdownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD8A6A71B42F86300B34D93 /* YNDropdownMenu.m */; };
 		E5BE2A939180A81742A5E826 /* libPods-YNWeiBo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 877181B59D278872CB72DA81 /* libPods-YNWeiBo.a */; };
 /* End PBXBuildFile section */
@@ -192,6 +194,8 @@
 		AC9EF8F41B4006F5005317CF /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		AC9EF90B1B401FAB005317CF /* Test1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Test1ViewController.h; sourceTree = "<group>"; };
 		AC9EF90C1B401FAB005317CF /* Test1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test1ViewController.m; sourceTree = "<group>"; };
+		ACA653C61B4C1F2300C4333E /* StausPhotosView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StausPhotosView.h; sourceTree = "<group>"; };
+		ACA653C71B4C1F2300C4333E /* StausPhotosView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StausPhotosView.m; sourceTree = "<group>"; };
 		ACD0730F1B46EE2300A1C55A /* OAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuthViewController.h; sourceTree = "<group>"; };
 		ACD073101B46EE2300A1C55A /* OAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAuthViewController.m; sourceTree = "<group>"; };
 		ACD0734F1B46F6EF00A1C55A /* Account.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Account.h; sourceTree = "<group>"; };
@@ -201,6 +205,8 @@
 		ACD073561B46FB9500A1C55A /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
 		ACD073571B46FB9500A1C55A /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		ACD073581B46FB9500A1C55A /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		ACD3CCF71B4ACFCE00BA5241 /* NSDate+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Extension.h"; sourceTree = "<group>"; };
+		ACD3CCF81B4ACFCE00BA5241 /* NSDate+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Extension.m"; sourceTree = "<group>"; };
 		ACD8A6A61B42F86300B34D93 /* YNDropdownMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YNDropdownMenu.h; sourceTree = "<group>"; };
 		ACD8A6A71B42F86300B34D93 /* YNDropdownMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YNDropdownMenu.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -303,6 +309,8 @@
 				AC59FF891B4837DD00F867B6 /* StatusCell.m */,
 				AC59FF911B497CE800F867B6 /* StatusToolbar.h */,
 				AC59FF921B497CE800F867B6 /* StatusToolbar.m */,
+				ACA653C61B4C1F2300C4333E /* StausPhotosView.h */,
+				ACA653C71B4C1F2300C4333E /* StausPhotosView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -340,6 +348,8 @@
 				AC01C3A61B41987E007D0D40 /* UIBarButtonItem+Extension.m */,
 				AC59FF1D1B47941000F867B6 /* UIWindow+Extension.h */,
 				AC59FF1E1B47941000F867B6 /* UIWindow+Extension.m */,
+				ACD3CCF71B4ACFCE00BA5241 /* NSDate+Extension.h */,
+				ACD3CCF81B4ACFCE00BA5241 /* NSDate+Extension.m */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -869,6 +879,7 @@
 				AC59FF7F1B4805C200F867B6 /* MJRefreshConst.m in Sources */,
 				ACD073111B46EE2300A1C55A /* OAuthViewController.m in Sources */,
 				AC59FF3D1B48058400F867B6 /* MJProperty.m in Sources */,
+				ACA653C81B4C1F2300C4333E /* StausPhotosView.m in Sources */,
 				AC01C3A71B41987E007D0D40 /* UIBarButtonItem+Extension.m in Sources */,
 				AC59FF221B47C98D00F867B6 /* TitleButton.m in Sources */,
 				ACD0735B1B46FB9500A1C55A /* MBProgressHUD.m in Sources */,
@@ -879,6 +890,7 @@
 				AC59FF931B497CE800F867B6 /* StatusToolbar.m in Sources */,
 				AC01C3A31B41968A007D0D40 /* MessageCenterViewController.m in Sources */,
 				AC59FF741B4805C200F867B6 /* MJRefreshHeader.m in Sources */,
+				ACD3CCF91B4ACFCE00BA5241 /* NSDate+Extension.m in Sources */,
 				AC59FF7D1B4805C200F867B6 /* MJRefreshStateHeader.m in Sources */,
 				AC59FF3C1B48058400F867B6 /* MJFoundation.m in Sources */,
 				AC59FF811B4805C200F867B6 /* UIScrollView+MJRefresh.m in Sources */,

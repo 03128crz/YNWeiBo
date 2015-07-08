@@ -28,7 +28,7 @@
 /** vip图标 */
 @property(nonatomic,assign) CGRect vipViewF;
 /** 配图 */
-@property(nonatomic,assign) CGRect photoViewF;
+@property(nonatomic,assign) CGRect photosViewF;
 /** 呢称 */
 @property(nonatomic,assign) CGRect nameLabelF;
 /** 时间 */
@@ -42,7 +42,7 @@
 @property(nonatomic,assign)CGRect retweetViewF;
 /** 转发微博内容+呢称*/
 @property(nonatomic,assign)CGRect retweetContentLabelF;
-@property(nonatomic,assign)CGRect retweetPhotoViewF;
+@property(nonatomic,assign)CGRect retweetPhotosViewF;
 
 @property(nonatomic,assign)CGRect toolbarF;
 
