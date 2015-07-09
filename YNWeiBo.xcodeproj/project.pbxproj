@@ -69,6 +69,10 @@
 		ACD8A6A81B42F86300B34D93 /* YNDropdownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD8A6A71B42F86300B34D93 /* YNDropdownMenu.m */; };
 		ACE514F71B4EB4BE00257E35 /* ComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE514F61B4EB4BE00257E35 /* ComposeViewController.m */; };
 		ACE515021B4ED28C00257E35 /* YNTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE515011B4ED28C00257E35 /* YNTextView.m */; };
+		ACE5150C1B4ED31E00257E35 /* NSDate+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE515051B4ED31E00257E35 /* NSDate+Extension.m */; };
+		ACE5150D1B4ED31E00257E35 /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE515071B4ED31E00257E35 /* UIBarButtonItem+Extension.m */; };
+		ACE5150E1B4ED31E00257E35 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE515091B4ED31E00257E35 /* UIView+Extension.m */; };
+		ACE5150F1B4ED31E00257E35 /* UIWindow+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE5150B1B4ED31E00257E35 /* UIWindow+Extension.m */; };
 		E5BE2A939180A81742A5E826 /* libPods-YNWeiBo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 877181B59D278872CB72DA81 /* libPods-YNWeiBo.a */; };
 /* End PBXBuildFile section */
 
@@ -209,6 +213,14 @@
 		ACE514F61B4EB4BE00257E35 /* ComposeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComposeViewController.m; sourceTree = "<group>"; };
 		ACE515001B4ED28C00257E35 /* YNTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YNTextView.h; sourceTree = "<group>"; };
 		ACE515011B4ED28C00257E35 /* YNTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YNTextView.m; sourceTree = "<group>"; };
+		ACE515041B4ED31E00257E35 /* NSDate+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Extension.h"; sourceTree = "<group>"; };
+		ACE515051B4ED31E00257E35 /* NSDate+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Extension.m"; sourceTree = "<group>"; };
+		ACE515061B4ED31E00257E35 /* UIBarButtonItem+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Extension.h"; sourceTree = "<group>"; };
+		ACE515071B4ED31E00257E35 /* UIBarButtonItem+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Extension.m"; sourceTree = "<group>"; };
+		ACE515081B4ED31E00257E35 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
+		ACE515091B4ED31E00257E35 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
+		ACE5150A1B4ED31E00257E35 /* UIWindow+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+Extension.h"; sourceTree = "<group>"; };
+		ACE5150B1B4ED31E00257E35 /* UIWindow+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+Extension.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -320,6 +332,7 @@
 		AC01C3851B41968A007D0D40 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				ACE515031B4ED31E00257E35 /* Extension */,
 				ACD073521B46FB9500A1C55A /* Lib */,
 				AC01C3861B41968A007D0D40 /* Controller */,
 				AC01C38E1B41968A007D0D40 /* main.m */,
@@ -713,6 +726,21 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		ACE515031B4ED31E00257E35 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				ACE515041B4ED31E00257E35 /* NSDate+Extension.h */,
+				ACE515051B4ED31E00257E35 /* NSDate+Extension.m */,
+				ACE515061B4ED31E00257E35 /* UIBarButtonItem+Extension.h */,
+				ACE515071B4ED31E00257E35 /* UIBarButtonItem+Extension.m */,
+				ACE515081B4ED31E00257E35 /* UIView+Extension.h */,
+				ACE515091B4ED31E00257E35 /* UIView+Extension.m */,
+				ACE5150A1B4ED31E00257E35 /* UIWindow+Extension.h */,
+				ACE5150B1B4ED31E00257E35 /* UIWindow+Extension.m */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		B28CF57A731A682389786EBB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -868,6 +896,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC59FF801B4805C200F867B6 /* UIScrollView+MJExtension.m in Sources */,
+				ACE5150F1B4ED31E00257E35 /* UIWindow+Extension.m in Sources */,
 				AC59FF721B4805C200F867B6 /* MJRefreshComponent.m in Sources */,
 				AC59FF3F1B48058400F867B6 /* NSObject+MJCoding.m in Sources */,
 				AC83CEB61B444B9D000F8A76 /* NewfeatureViewController.m in Sources */,
@@ -887,6 +916,7 @@
 				AC59FF791B4805C200F867B6 /* MJRefreshBackNormalFooter.m in Sources */,
 				AC59FF7C1B4805C200F867B6 /* MJRefreshNormalHeader.m in Sources */,
 				AC59FF8A1B4837DD00F867B6 /* StatusCell.m in Sources */,
+				ACE5150D1B4ED31E00257E35 /* UIBarButtonItem+Extension.m in Sources */,
 				AC59FF3E1B48058400F867B6 /* MJType.m in Sources */,
 				AC59FF3B1B48058400F867B6 /* MJConst.m in Sources */,
 				AC59FF7A1B4805C200F867B6 /* MJRefreshBackStateFooter.m in Sources */,
@@ -896,6 +926,7 @@
 				AC59FF1C1B478DB300F867B6 /* AccountTool.m in Sources */,
 				ACD073591B46FB9500A1C55A /* MBProgressHUD+MJ.m in Sources */,
 				AC59FF781B4805C200F867B6 /* MJRefreshBackGifFooter.m in Sources */,
+				ACE5150C1B4ED31E00257E35 /* NSDate+Extension.m in Sources */,
 				AC01C3A21B41968A007D0D40 /* main.m in Sources */,
 				ACE515021B4ED28C00257E35 /* YNTextView.m in Sources */,
 				AC01C3A41B41968A007D0D40 /* ProfileViewController.m in Sources */,
@@ -915,6 +946,7 @@
 				AC01C3A31B41968A007D0D40 /* MessageCenterViewController.m in Sources */,
 				AC59FF741B4805C200F867B6 /* MJRefreshHeader.m in Sources */,
 				AC59FF7D1B4805C200F867B6 /* MJRefreshStateHeader.m in Sources */,
+				ACE5150E1B4ED31E00257E35 /* UIView+Extension.m in Sources */,
 				AC59FF3C1B48058400F867B6 /* MJFoundation.m in Sources */,
 				AC03AFE81B4D6CAE00239781 /* StatusPhtotView.m in Sources */,
 				AC59FF811B4805C200F867B6 /* UIScrollView+MJRefresh.m in Sources */,
