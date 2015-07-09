@@ -14,6 +14,7 @@
 #import "YNNavigationController.h"
 #import "UIView+Extension.h"
 #import "YNTabBar.h"
+#import "ComposeViewController.h"
 
 #define YNRendomColor [UIColor colorWithRed:arc4random_uniform(256)/255.0 green:arc4random_uniform(256)/255.0 blue:arc4random_uniform(256)/255.0 alpha:1.0]
 
@@ -55,9 +56,13 @@
 
 -(void)tabBarDidClickPlusButton:(YNTabBar *)tabBar{
     
-    UIViewController *vc = [[UIViewController alloc]init];
-    vc.view.backgroundColor  = [UIColor redColor];
-    [self presentViewController:vc animated:YES completion:nil];
+//    UIViewController *vc = [[UIViewController alloc]init];
+//    vc.view.backgroundColor  = [UIColor redColor];
+//    [self presentViewController:vc animated:YES completion:nil];
+    
+    ComposeViewController *compose = [[ComposeViewController alloc]init];
+    YNNavigationController *nav = [[YNNavigationController alloc]initWithRootViewController:compose];
+    [self presentViewController:nav animated:YES completion:nil];
 }
 
 

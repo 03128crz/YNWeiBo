@@ -22,12 +22,12 @@
     
     NSMutableDictionary *textAttrs = [NSMutableDictionary dictionary];
     textAttrs[NSForegroundColorAttributeName] = [UIColor orangeColor];
-    textAttrs[NSFontAttributeName] = [UIFont systemFontOfSize:13];
+    textAttrs[NSFontAttributeName] = [UIFont systemFontOfSize:15];
     [item setTitleTextAttributes:textAttrs forState:UIControlStateNormal];
     
     NSMutableDictionary *disableTextAttrs = [NSMutableDictionary dictionary];
     disableTextAttrs[NSForegroundColorAttributeName] = [UIColor grayColor];
-    disableTextAttrs[NSFontAttributeName] = [UIFont systemFontOfSize:13];
+    disableTextAttrs[NSFontAttributeName] = [UIFont systemFontOfSize:15];
     [item setTitleTextAttributes:disableTextAttrs forState:UIControlStateDisabled];
 }
 
