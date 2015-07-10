@@ -12,10 +12,13 @@
 #import "YNTextView.h"
 #import <AFNetworking.h>
 #import "MBProgressHUD+MJ.h"
+#import "ComposeToolbar.h"
+#import "UIView+Extension.h"
 
-@interface ComposeViewController ()
+@interface ComposeViewController ()<UITextViewDelegate>
 
 @property (weak, nonatomic) YNTextView *textView;
+@property (weak, nonatomic) ComposeToolbar *toolbar;
 
 @end
 
@@ -29,6 +32,7 @@
     
     [self setupTextView];
     
+    [self setupToolbar];
 
 }
 
@@ -64,15 +68,48 @@ UITextView
     //占据整个屏幕
     textView.frame = self.view.bounds;
     textView.font = [UIFont systemFontOfSize:15];
+    //垂直方向永远有拖动弹簧效果
+    textView.alwaysBounceVertical = YES;
     textView.placeholder = @"分享你的新鲜事...";
+    textView.delegate =self;
     [self.view addSubview:textView];
     
-        self.textView = textView;
+    self.textView = textView;
     
-            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textDidChange) name:UITextViewTextDidChangeNotification object:textView];
+    //文字改变通知
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textDidChange) name:UITextViewTextDidChangeNotification object:textView];
+    
+    //键盘通知
+//    UIKeyboardWillChangeFrameNotification; frame发生改变（位置和尺寸）
+//    UIKeyboardWillShowNotification;
+//    UIKeyboardWillHideNotification;
+//    UIKeyboardDidChangeFrameNotification;
+//    UIKeyboardDidShowNotification;
+//    UIKeyboardDidHideNotification;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];
+    
     //
     //self.automaticallyAdjustsScrollViewInsets = NO;
 }
+
+-(void)keyboardWillChangeFrame:(NSNotification *)notification{
+    
+    //notification.userInfo
+    //UIKeyboardFrameEndUserInfoKey = CGrect{{0,352},{320,216}};
+    //UIKeyboardAnimationDurationUserInfoKey=0.25;
+    //UIKeyboardAnimationCurveUserInfoKey = 7
+    
+    NSDictionary *userInfo = notification.userInfo;
+    double duration = [userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    
+    CGRect keyboardFrame =  [userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    
+    [UIView animateWithDuration:duration animations:^{
+        self.toolbar.y = keyboardFrame.origin.y - self.toolbar.height;
+    }];
+}
+
 
 -(void)setupNav{
     self.view.backgroundColor = [UIColor whiteColor];
@@ -102,6 +139,29 @@ UITextView
 
 }
 
+-(void)setupToolbar{
+    
+    ComposeToolbar *toolbar = [ComposeToolbar new];
+    toolbar.height =44;
+    toolbar.width = self.view.width;
+    //inputView用来设置键盘
+    //self.textView.inputView;
+    //inputAccessoryView 设置键盘上面的位置
+    //self.textView.inputAccessoryView = toobar;
+    //不跟随键盘
+    toolbar.y = self.view.height-toolbar.height;
+    [self.view addSubview:toolbar];
+    self.toolbar = toolbar;
+}
+
+#pragma mark - UITextViewDelegate
+
+-(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
+    
+    //键盘消失
+    [self.view endEditing:YES];
+}
+
 #pragma mark - event response
 
 -(void)cancel{
@@ -116,7 +176,7 @@ UITextView
     params[@"status"]= self.textView.text;
   
     
-    [mgr POST:@"https://api.weibo.com/oauth2/statuses/update.json" parameters:params success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
+    [mgr POST:@"https://api.weibo.com/2/statuses/update.json" parameters:params success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
         NSLog(@"请求成功-%@",responseObject);
 
         [MBProgressHUD showSuccess:@"发送成功"];

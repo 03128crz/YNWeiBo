@@ -58,6 +58,7 @@
 		AC59FF931B497CE800F867B6 /* StatusToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = AC59FF921B497CE800F867B6 /* StatusToolbar.m */; };
 		AC83CEB31B443649000F8A76 /* YNTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = AC83CEB21B443649000F8A76 /* YNTabBar.m */; };
 		AC83CEB61B444B9D000F8A76 /* NewfeatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC83CEB51B444B9D000F8A76 /* NewfeatureViewController.m */; };
+		AC9755F01B501FC0000FC40E /* ComposeToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9755EF1B501FC0000FC40E /* ComposeToolbar.m */; };
 		AC9EF8F81B4006F5005317CF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9EF8F41B4006F5005317CF /* AppDelegate.m */; };
 		AC9EF90D1B401FAB005317CF /* Test1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9EF90C1B401FAB005317CF /* Test1ViewController.m */; };
 		ACA653C81B4C1F2300C4333E /* StausPhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = ACA653C71B4C1F2300C4333E /* StausPhotosView.m */; };
@@ -192,6 +193,8 @@
 		AC83CEB21B443649000F8A76 /* YNTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YNTabBar.m; sourceTree = "<group>"; };
 		AC83CEB41B444B9D000F8A76 /* NewfeatureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewfeatureViewController.h; sourceTree = "<group>"; };
 		AC83CEB51B444B9D000F8A76 /* NewfeatureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewfeatureViewController.m; sourceTree = "<group>"; };
+		AC9755EE1B501FC0000FC40E /* ComposeToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComposeToolbar.h; sourceTree = "<group>"; };
+		AC9755EF1B501FC0000FC40E /* ComposeToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComposeToolbar.m; sourceTree = "<group>"; };
 		AC9EF8F31B4006F5005317CF /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		AC9EF8F41B4006F5005317CF /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		AC9EF90B1B401FAB005317CF /* Test1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Test1ViewController.h; sourceTree = "<group>"; };
@@ -722,6 +725,8 @@
 		ACE514F91B4EC33900257E35 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				AC9755EE1B501FC0000FC40E /* ComposeToolbar.h */,
+				AC9755EF1B501FC0000FC40E /* ComposeToolbar.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -936,6 +941,7 @@
 				ACE514F71B4EB4BE00257E35 /* ComposeViewController.m in Sources */,
 				ACA653C81B4C1F2300C4333E /* StausPhotosView.m in Sources */,
 				AC59FF221B47C98D00F867B6 /* TitleButton.m in Sources */,
+				AC9755F01B501FC0000FC40E /* ComposeToolbar.m in Sources */,
 				ACD0735B1B46FB9500A1C55A /* MBProgressHUD.m in Sources */,
 				AC9EF8F81B4006F5005317CF /* AppDelegate.m in Sources */,
 				AC59FF821B4805C200F867B6 /* UIView+MJExtension.m in Sources */,
