@@ -62,6 +62,7 @@
 		AC9EF8F81B4006F5005317CF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9EF8F41B4006F5005317CF /* AppDelegate.m */; };
 		AC9EF90D1B401FAB005317CF /* Test1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9EF90C1B401FAB005317CF /* Test1ViewController.m */; };
 		ACA653C81B4C1F2300C4333E /* StausPhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = ACA653C71B4C1F2300C4333E /* StausPhotosView.m */; };
+		ACB64D371B50D37000091BFB /* ComposePhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB64D361B50D37000091BFB /* ComposePhotosView.m */; };
 		ACD073111B46EE2300A1C55A /* OAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD073101B46EE2300A1C55A /* OAuthViewController.m */; };
 		ACD073511B46F6EF00A1C55A /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD073501B46F6EF00A1C55A /* Account.m */; };
 		ACD073591B46FB9500A1C55A /* MBProgressHUD+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD073551B46FB9500A1C55A /* MBProgressHUD+MJ.m */; };
@@ -201,6 +202,8 @@
 		AC9EF90C1B401FAB005317CF /* Test1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test1ViewController.m; sourceTree = "<group>"; };
 		ACA653C61B4C1F2300C4333E /* StausPhotosView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StausPhotosView.h; sourceTree = "<group>"; };
 		ACA653C71B4C1F2300C4333E /* StausPhotosView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StausPhotosView.m; sourceTree = "<group>"; };
+		ACB64D351B50D37000091BFB /* ComposePhotosView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComposePhotosView.h; sourceTree = "<group>"; };
+		ACB64D361B50D37000091BFB /* ComposePhotosView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComposePhotosView.m; sourceTree = "<group>"; };
 		ACD0730F1B46EE2300A1C55A /* OAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuthViewController.h; sourceTree = "<group>"; };
 		ACD073101B46EE2300A1C55A /* OAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAuthViewController.m; sourceTree = "<group>"; };
 		ACD0734F1B46F6EF00A1C55A /* Account.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Account.h; sourceTree = "<group>"; };
@@ -727,6 +730,8 @@
 			children = (
 				AC9755EE1B501FC0000FC40E /* ComposeToolbar.h */,
 				AC9755EF1B501FC0000FC40E /* ComposeToolbar.m */,
+				ACB64D351B50D37000091BFB /* ComposePhotosView.h */,
+				ACB64D361B50D37000091BFB /* ComposePhotosView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -906,6 +911,7 @@
 				AC59FF3F1B48058400F867B6 /* NSObject+MJCoding.m in Sources */,
 				AC83CEB61B444B9D000F8A76 /* NewfeatureViewController.m in Sources */,
 				AC59FF711B4805C200F867B6 /* MJRefreshBackFooter.m in Sources */,
+				ACB64D371B50D37000091BFB /* ComposePhotosView.m in Sources */,
 				ACD073511B46F6EF00A1C55A /* Account.m in Sources */,
 				AC59FF751B4805C200F867B6 /* MJRefreshAutoGifFooter.m in Sources */,
 				AC59FF771B4805C200F867B6 /* MJRefreshAutoStateFooter.m in Sources */,

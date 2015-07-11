@@ -14,11 +14,13 @@
 #import "MBProgressHUD+MJ.h"
 #import "ComposeToolbar.h"
 #import "UIView+Extension.h"
+#import "ComposePhotosView.h"
 
-@interface ComposeViewController ()<UITextViewDelegate>
+@interface ComposeViewController ()<UITextViewDelegate,ComposeToolbarDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 
 @property (weak, nonatomic) YNTextView *textView;
 @property (weak, nonatomic) ComposeToolbar *toolbar;
+@property (weak, nonatomic) ComposePhotosView *photosView;
 
 @end
 
@@ -33,11 +35,31 @@
     [self setupTextView];
     
     [self setupToolbar];
+    
+    [self setupPhotoView];
 
+}
+
+-(void)setupPhotoView{
+    
+    ComposePhotosView *photosView =[[ComposePhotosView alloc]init];
+    photosView.width = self.view.width;
+    photosView.height = 500;
+    photosView.y = 100;
+    [self.textView addSubview:photosView ];
+    self.photosView = photosView;
+
+    
 }
 
 -(void)dealloc{
     [[NSNotificationCenter defaultCenter]removeObserver:self];
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:YES];
+    
+    [self.textView becomeFirstResponder];
 }
 
 /**
@@ -89,6 +111,8 @@ UITextView
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];
     
+  
+    
     //
     //self.automaticallyAdjustsScrollViewInsets = NO;
 }
@@ -106,7 +130,12 @@ UITextView
     CGRect keyboardFrame =  [userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
     
     [UIView animateWithDuration:duration animations:^{
-        self.toolbar.y = keyboardFrame.origin.y - self.toolbar.height;
+    
+        if (keyboardFrame.origin.y>=self.view.height) {
+                self.toolbar.y = self.view.height - self.toolbar.height;
+        }else{
+                self.toolbar.y = keyboardFrame.origin.y - self.toolbar.height;
+        }
     }];
 }
 
@@ -144,6 +173,7 @@ UITextView
     ComposeToolbar *toolbar = [ComposeToolbar new];
     toolbar.height =44;
     toolbar.width = self.view.width;
+    toolbar.delegate = self;
     //inputView用来设置键盘
     //self.textView.inputView;
     //inputAccessoryView 设置键盘上面的位置
@@ -162,6 +192,29 @@ UITextView
     [self.view endEditing:YES];
 }
 
+-(void)composeToolbar:(ComposeToolbar *)toolbar didClickButton:(ComposeToolbarButtonType)buttonType{
+    
+    switch (buttonType) {
+        case ComposeToolbarButtonTypeCamera:
+            [self openCamera];
+            break;
+        case ComposeToolbarButtonTypePicture:
+            [self openAlbum];
+            break;
+        case ComposeToolbarButtonTypeMention: //@
+            
+            break;
+        case ComposeToolbarButtonTypeTrend: //#
+            
+            break;
+        case ComposeToolbarButtonTypeEmotion: //表情
+            
+            break;
+        default:
+            break;
+    }
+}
+
 #pragma mark - event response
 
 -(void)cancel{
@@ -174,18 +227,43 @@ UITextView
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"access_token"] = [AccountTool account].access_token;
     params[@"status"]= self.textView.text;
-  
     
-    [mgr POST:@"https://api.weibo.com/2/statuses/update.json" parameters:params success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
-        NSLog(@"请求成功-%@",responseObject);
+  
+    if (self.photosView.photos.count) {
+        //只支持一张图片
+        [mgr POST:@"https://upload.api.weibo.com/2/statuses/upload.json" parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+            UIImage *image = [self.photosView.photos firstObject];
+            NSData *data = UIImageJPEGRepresentation(image, 1.0);
+            
+            [formData appendPartWithFileData:data name:@"pic" fileName:@"test.jpg" mimeType:@""];
+            
+        } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            NSLog(@"请求成功-%@",responseObject);
+            
+            [MBProgressHUD showSuccess:@"发送成功"];
+            
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"发送失败-%@",error);
+        }];
+        
+    }else{
+        
+        [mgr POST:@"https://api.weibo.com/2/statuses/update.json" parameters:params success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
+            NSLog(@"请求成功-%@",responseObject);
+            
+            [MBProgressHUD showSuccess:@"发送成功"];
+            
+            //自定义状态栏，显示api返回的信息
+            
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"发送失败-%@",error);
+        }];
+    }
+    
+    
+    
+    
 
-        [MBProgressHUD showSuccess:@"发送成功"];
-        
-        //自定义状态栏，显示api返回的信息
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"发送失败-%@",error);
-    }];
     
     [self dismissViewControllerAnimated:YES completion:nil];
     
@@ -195,5 +273,40 @@ UITextView
     
     self.navigationItem.rightBarButtonItem.enabled  = self.textView.hasText;
 }
+
+-(void)openCamera{
+  
+    
+    [self openImagePickerController:UIImagePickerControllerSourceTypeCamera];
+}
+
+-(void)openAlbum{
+    //如果想自己写一个图片选择控制器，得利用AssetsLibray.framework
+    //UIImagePickerControllerSourceTypePhotoLibrary  包含 UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+    
+    [self openImagePickerController:UIImagePickerControllerSourceTypePhotoLibrary];
+}
+
+-(void)openImagePickerController:(UIImagePickerControllerSourceType)type{
+    
+    if (![UIImagePickerController isSourceTypeAvailable:type]) return;
+    
+    UIImagePickerController *ipc = [[UIImagePickerController alloc]init];
+    ipc.sourceType = type;
+    ipc.delegate =self;
+    [self presentViewController:ipc animated:YES completion:nil];
+}
+
+//从控制器选择完图片（拍照完毕或选 择相册完毕）
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
+    
+    
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    
+    UIImage *image = info[UIImagePickerControllerOriginalImage];
+    
+    [self.photosView addPhoto:image];
+}
+
 
 @end
