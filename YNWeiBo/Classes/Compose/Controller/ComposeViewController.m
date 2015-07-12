@@ -9,7 +9,6 @@
 #import "ComposeViewController.h"
 #import "AccountTool.h"
 #import "UIView+Extension.h"
-#import "YNTextView.h"
 #import <AFNetworking.h>
 #import "MBProgressHUD+MJ.h"
 #import "ComposeToolbar.h"
@@ -17,10 +16,13 @@
 #import "ComposePhotosView.h"
 #import "EmotionKeyboard.h"
 #import "UIView+Extension.h"
+#import "Emotion.h"
+#import "NSString+Emoji.h"
+#import "EmotionTextView.h"
 
 @interface ComposeViewController ()<UITextViewDelegate,ComposeToolbarDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 
-@property (weak, nonatomic) YNTextView *textView;
+@property (weak, nonatomic) EmotionTextView *textView;
 @property (weak, nonatomic) ComposeToolbar *toolbar;
 @property (weak, nonatomic) ComposePhotosView *photosView;
 @property (strong, nonatomic) EmotionKeyboard *emotionKeyboard;
@@ -103,7 +105,7 @@ UITextView
     
     //继承自ScrollView，设置了内边距，可以在导航栏下才开始输出文字
     //其它控件如buttom直接添加，会被导航栏挡住
-    YNTextView *textView = [[YNTextView alloc]init];
+    EmotionTextView *textView = [[EmotionTextView alloc]init];
     //占据整个屏幕
     textView.frame = self.view.bounds;
     textView.font = [UIFont systemFontOfSize:15];
@@ -127,6 +129,9 @@ UITextView
 //    UIKeyboardDidHideNotification;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];
+    
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(emotionDidSelect:) name:@"EmotionDidSelectNotification" object:nil];
     
     //
     //self.automaticallyAdjustsScrollViewInsets = NO;
@@ -154,6 +159,13 @@ UITextView
     }];
 }
 
+-(void)emotionDidSelect:(NSNotification *)notification{
+    
+    Emotion *emotion = notification.userInfo[@"selectEmotionKey"];
+    [self.textView insertEmotion:emotion];
+    
+    
+}
 
 -(void)setupNav{
     self.view.backgroundColor = [UIColor whiteColor];

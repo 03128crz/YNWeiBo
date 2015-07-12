@@ -19,6 +19,7 @@
 		AC0413CE1B52976E00469BCF /* EmotionPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0413CD1B52976E00469BCF /* EmotionPopView.m */; };
 		AC0413D01B52978800469BCF /* EmotionPopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC0413CF1B52978800469BCF /* EmotionPopView.xib */; };
 		AC0413D31B529E0C00469BCF /* EmotionButton.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0413D21B529E0C00469BCF /* EmotionButton.m */; };
+		AC0413D61B52B4DF00469BCF /* EmotionTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0413D51B52B4DF00469BCF /* EmotionTextView.m */; };
 		AC29BD151B3FEDB200C60052 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC29BD141B3FEDB200C60052 /* Images.xcassets */; };
 		AC29BD181B3FEDB200C60052 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC29BD161B3FEDB200C60052 /* LaunchScreen.xib */; };
 		AC29BD241B3FEDB200C60052 /* YNWeiBoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AC29BD231B3FEDB200C60052 /* YNWeiBoTests.m */; };
@@ -124,6 +125,8 @@
 		AC0413CF1B52978800469BCF /* EmotionPopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmotionPopView.xib; sourceTree = "<group>"; };
 		AC0413D11B529E0C00469BCF /* EmotionButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmotionButton.h; sourceTree = "<group>"; };
 		AC0413D21B529E0C00469BCF /* EmotionButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmotionButton.m; sourceTree = "<group>"; };
+		AC0413D41B52B4DF00469BCF /* EmotionTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmotionTextView.h; sourceTree = "<group>"; };
+		AC0413D51B52B4DF00469BCF /* EmotionTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmotionTextView.m; sourceTree = "<group>"; };
 		AC29BD041B3FEDB200C60052 /* YNWeiBo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YNWeiBo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC29BD081B3FEDB200C60052 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC29BD141B3FEDB200C60052 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -776,6 +779,8 @@
 				AC0413CF1B52978800469BCF /* EmotionPopView.xib */,
 				AC0413D11B529E0C00469BCF /* EmotionButton.h */,
 				AC0413D21B529E0C00469BCF /* EmotionButton.m */,
+				AC0413D41B52B4DF00469BCF /* EmotionTextView.h */,
+				AC0413D51B52B4DF00469BCF /* EmotionTextView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -985,6 +990,7 @@
 				AC59FF761B4805C200F867B6 /* MJRefreshAutoNormalFooter.m in Sources */,
 				ACB64F0C1B5250D100091BFB /* EmotionPageView.m in Sources */,
 				AC59FF1C1B478DB300F867B6 /* AccountTool.m in Sources */,
+				AC0413D61B52B4DF00469BCF /* EmotionTextView.m in Sources */,
 				ACD073591B46FB9500A1C55A /* MBProgressHUD+MJ.m in Sources */,
 				AC59FF781B4805C200F867B6 /* MJRefreshBackGifFooter.m in Sources */,
 				ACE5150C1B4ED31E00257E35 /* NSDate+Extension.m in Sources */,
