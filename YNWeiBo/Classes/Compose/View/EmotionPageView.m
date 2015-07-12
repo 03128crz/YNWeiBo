@@ -10,12 +10,25 @@
 #import "Emotion.h"
 #import "UIView+Extension.h"
 #import "NSString+Emoji.h"
+#import "EmotionPopView.h"
+#import "UIView+Extension.h"
+#import "EmotionButton.h"
 
 @interface EmotionPageView ()
-
+/** 表情放大镜*/
+@property (strong, nonatomic) EmotionPopView *popView;
 @end
 
 @implementation EmotionPageView
+
+-(EmotionPopView *)popView{
+    if (!_popView) {
+        self.popView = [EmotionPopView popView];
+        
+    }
+    
+    return _popView;
+}
 
 -(instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
@@ -31,20 +44,36 @@
     
     NSUInteger count = emotions.count;
     for (int i =0; i<count; i++) {
-        UIButton *btn = [UIButton new];
-        
-        Emotion *emotion = emotions[i];
-        if (emotion.png) {
-              [btn setImage:[UIImage imageNamed:emotion.png] forState:UIControlStateNormal];
-        }else{
-             //emotion.code : 十六进制 -->Emoji 字符
-            [btn setTitle:[emotion.code emoji] forState:UIControlStateNormal];
-            btn.titleLabel.font = [UIFont systemFontOfSize:32];
-        }
-        
+        EmotionButton *btn = [EmotionButton new];
         [self addSubview:btn];
+        
+        btn.emotion= emotions[i];
+
+        [btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
+        
     }
     
+}
+
+-(void)btnClick:(EmotionButton *)btn{
+
+   UIWindow *windows =  [[UIApplication sharedApplication].windows lastObject];
+    
+    [windows addSubview:self.popView];
+//    self.popView.y = btn.centerY-self.popView.height;
+//    self.popView.centerX = btn.centerX;
+    //转换坐标系
+    
+    //计算出被点击的按钮在windows的frame
+    CGRect frame = [btn convertRect:btn.bounds toView:windows];
+    self.popView.y = CGRectGetMidY(frame)-self.popView.height;
+    self.popView.centerX = CGRectGetMidX(frame);
+    
+    self.popView.emotion = btn.emotion;
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.popView removeFromSuperview];
+    });
 }
 
 -(void)layoutSubviews{
