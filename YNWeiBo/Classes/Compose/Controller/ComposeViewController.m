@@ -32,7 +32,10 @@
 -(EmotionKeyboard *)emotionKeyboard{
     if (!_emotionKeyboard) {
         self.emotionKeyboard = [[EmotionKeyboard alloc]init];
+        //系统会强制让键盘的宽度为屏幕的宽度，前提是有设置了非0的宽度
         self.emotionKeyboard.width = self.view.width;
+//        self.emotionKeyboard.width = 0;
+        
         self.emotionKeyboard.height = 216;
     }
     

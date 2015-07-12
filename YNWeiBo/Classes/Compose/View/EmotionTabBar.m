@@ -15,12 +15,20 @@
 
 @implementation EmotionTabBar
 
+//重写setDelegate ,一进来显示默认表情
+-(void)setDelegate:(id<EmotionTabBarDelegate>)delegate{
+    
+    _delegate = delegate;
+    
+    [self btnClick:(UIButton *)[self viewWithTag:EmotionTabBarButtonTypeDefault]];
+}
+
 -(instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if (self) {
         [self setupBtn:@"最近" buttonType:EmotionTabBarButtonTypeRecent];
-        UIButton *defaultBtn = [self setupBtn:@"默认" buttonType:EmotionTabBarButtonTypeDefault];
-        [self btnClick:defaultBtn];
+        [self setupBtn:@"默认" buttonType:EmotionTabBarButtonTypeDefault];
+       // [self btnClick:defaultBtn];
         [self setupBtn:@"Emoji" buttonType:EmotionTabBarButtonTypeEmoji];
         [self setupBtn:@"浪小花" buttonType:EmotionTabBarButtonTypeLxh];
         
@@ -29,7 +37,7 @@
     return self;
 }
 
--(UIButton *)setupBtn:(NSString *)titile buttonType:(EmotionTabBarButtonType)buttonType{
+-(void)setupBtn:(NSString *)titile buttonType:(EmotionTabBarButtonType)buttonType{
     
     UIButton *btn = [UIButton new];
     btn.tag = buttonType;
@@ -57,7 +65,6 @@
     [btn setBackgroundImage:[UIImage imageNamed:image] forState:UIControlStateNormal  ];
     [btn setBackgroundImage:[UIImage imageNamed:selectedImage] forState:UIControlStateDisabled  ];
     
-    return btn;
 }
 
 -(void)layoutSubviews{

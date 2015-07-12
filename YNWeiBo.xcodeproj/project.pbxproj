@@ -66,6 +66,10 @@
 		ACB64D3A1B5160CA00091BFB /* EmotionKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB64D391B5160CA00091BFB /* EmotionKeyboard.m */; };
 		ACB64D3D1B51619400091BFB /* EmotionTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB64D3C1B51619400091BFB /* EmotionTabBar.m */; };
 		ACB64D401B51620000091BFB /* EmotionListView.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB64D3F1B51620000091BFB /* EmotionListView.m */; };
+		ACB64F061B521AA000091BFB /* EmotionIcons in Resources */ = {isa = PBXBuildFile; fileRef = ACB64F051B521AA000091BFB /* EmotionIcons */; };
+		ACB64F091B5234BD00091BFB /* Emotion.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB64F081B5234BD00091BFB /* Emotion.m */; };
+		ACB64F0C1B5250D100091BFB /* EmotionPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB64F0B1B5250D100091BFB /* EmotionPageView.m */; };
+		ACB64F0F1B52580000091BFB /* NSString+Emoji.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB64F0E1B52580000091BFB /* NSString+Emoji.m */; };
 		ACD073111B46EE2300A1C55A /* OAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD073101B46EE2300A1C55A /* OAuthViewController.m */; };
 		ACD073511B46F6EF00A1C55A /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD073501B46F6EF00A1C55A /* Account.m */; };
 		ACD073591B46FB9500A1C55A /* MBProgressHUD+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD073551B46FB9500A1C55A /* MBProgressHUD+MJ.m */; };
@@ -213,6 +217,13 @@
 		ACB64D3C1B51619400091BFB /* EmotionTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmotionTabBar.m; sourceTree = "<group>"; };
 		ACB64D3E1B51620000091BFB /* EmotionListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmotionListView.h; sourceTree = "<group>"; };
 		ACB64D3F1B51620000091BFB /* EmotionListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmotionListView.m; sourceTree = "<group>"; };
+		ACB64F051B521AA000091BFB /* EmotionIcons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = EmotionIcons; sourceTree = "<group>"; };
+		ACB64F071B5234BD00091BFB /* Emotion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Emotion.h; sourceTree = "<group>"; };
+		ACB64F081B5234BD00091BFB /* Emotion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Emotion.m; sourceTree = "<group>"; };
+		ACB64F0A1B5250D100091BFB /* EmotionPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmotionPageView.h; sourceTree = "<group>"; };
+		ACB64F0B1B5250D100091BFB /* EmotionPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmotionPageView.m; sourceTree = "<group>"; };
+		ACB64F0D1B52580000091BFB /* NSString+Emoji.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Emoji.h"; sourceTree = "<group>"; };
+		ACB64F0E1B52580000091BFB /* NSString+Emoji.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Emoji.m"; sourceTree = "<group>"; };
 		ACD0730F1B46EE2300A1C55A /* OAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuthViewController.h; sourceTree = "<group>"; };
 		ACD073101B46EE2300A1C55A /* OAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAuthViewController.m; sourceTree = "<group>"; };
 		ACD0734F1B46F6EF00A1C55A /* Account.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Account.h; sourceTree = "<group>"; };
@@ -490,6 +501,7 @@
 		AC29BD071B3FEDB200C60052 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				ACB64F051B521AA000091BFB /* EmotionIcons */,
 				AC29BD081B3FEDB200C60052 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -730,6 +742,8 @@
 		ACE514F81B4EC33900257E35 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				ACB64F071B5234BD00091BFB /* Emotion.h */,
+				ACB64F081B5234BD00091BFB /* Emotion.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -747,6 +761,8 @@
 				ACB64D3C1B51619400091BFB /* EmotionTabBar.m */,
 				ACB64D3E1B51620000091BFB /* EmotionListView.h */,
 				ACB64D3F1B51620000091BFB /* EmotionListView.m */,
+				ACB64F0A1B5250D100091BFB /* EmotionPageView.h */,
+				ACB64F0B1B5250D100091BFB /* EmotionPageView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -754,6 +770,8 @@
 		ACE515031B4ED31E00257E35 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				ACB64F0D1B52580000091BFB /* NSString+Emoji.h */,
+				ACB64F0E1B52580000091BFB /* NSString+Emoji.m */,
 				ACE515041B4ED31E00257E35 /* NSDate+Extension.h */,
 				ACE515051B4ED31E00257E35 /* NSDate+Extension.m */,
 				ACE515061B4ED31E00257E35 /* UIBarButtonItem+Extension.h */,
@@ -868,6 +886,7 @@
 				AC29BD181B3FEDB200C60052 /* LaunchScreen.xib in Resources */,
 				AC29BD151B3FEDB200C60052 /* Images.xcassets in Resources */,
 				AC59FF7E1B4805C200F867B6 /* MJRefresh.bundle in Resources */,
+				ACB64F061B521AA000091BFB /* EmotionIcons in Resources */,
 				AC59FF871B481A8D00F867B6 /* LoadMoreFooter.xib in Resources */,
 				ACD0735A1B46FB9500A1C55A /* MBProgressHUD.bundle in Resources */,
 			);
@@ -930,6 +949,7 @@
 				ACD073511B46F6EF00A1C55A /* Account.m in Sources */,
 				AC59FF751B4805C200F867B6 /* MJRefreshAutoGifFooter.m in Sources */,
 				AC59FF771B4805C200F867B6 /* MJRefreshAutoStateFooter.m in Sources */,
+				ACB64F0F1B52580000091BFB /* NSString+Emoji.m in Sources */,
 				AC83CEB31B443649000F8A76 /* YNTabBar.m in Sources */,
 				AC01C3A01B41968A007D0D40 /* YNNavigationController.m in Sources */,
 				AC59FF411B48058400F867B6 /* NSObject+MJProperty.m in Sources */,
@@ -949,6 +969,7 @@
 				ACD8A6A81B42F86300B34D93 /* YNDropdownMenu.m in Sources */,
 				AC59FF7B1B4805C200F867B6 /* MJRefreshGifHeader.m in Sources */,
 				AC59FF761B4805C200F867B6 /* MJRefreshAutoNormalFooter.m in Sources */,
+				ACB64F0C1B5250D100091BFB /* EmotionPageView.m in Sources */,
 				AC59FF1C1B478DB300F867B6 /* AccountTool.m in Sources */,
 				ACD073591B46FB9500A1C55A /* MBProgressHUD+MJ.m in Sources */,
 				AC59FF781B4805C200F867B6 /* MJRefreshBackGifFooter.m in Sources */,
@@ -983,6 +1004,7 @@
 				AC59FF701B4805C200F867B6 /* MJRefreshAutoFooter.m in Sources */,
 				AC59FF851B481A7600F867B6 /* LoadMoreFooter.m in Sources */,
 				AC01C39E1B41968A007D0D40 /* HomeViewController.m in Sources */,
+				ACB64F091B5234BD00091BFB /* Emotion.m in Sources */,
 				AC59FF731B4805C200F867B6 /* MJRefreshFooter.m in Sources */,
 				AC59FF8D1B483C7A00F867B6 /* StatusFrame.m in Sources */,
 			);
