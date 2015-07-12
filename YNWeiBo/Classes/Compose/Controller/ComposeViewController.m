@@ -15,16 +15,30 @@
 #import "ComposeToolbar.h"
 #import "UIView+Extension.h"
 #import "ComposePhotosView.h"
+#import "EmotionKeyboard.h"
+#import "UIView+Extension.h"
 
 @interface ComposeViewController ()<UITextViewDelegate,ComposeToolbarDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 
 @property (weak, nonatomic) YNTextView *textView;
 @property (weak, nonatomic) ComposeToolbar *toolbar;
 @property (weak, nonatomic) ComposePhotosView *photosView;
+@property (strong, nonatomic) EmotionKeyboard *emotionKeyboard;
 
 @end
 
 @implementation ComposeViewController
+
+-(EmotionKeyboard *)emotionKeyboard{
+    if (!_emotionKeyboard) {
+        self.emotionKeyboard = [[EmotionKeyboard alloc]init];
+        self.emotionKeyboard.width = self.view.width;
+        self.emotionKeyboard.height = 216;
+    }
+    
+    return _emotionKeyboard;
+
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -110,8 +124,6 @@ UITextView
 //    UIKeyboardDidHideNotification;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];
-    
-  
     
     //
     //self.automaticallyAdjustsScrollViewInsets = NO;
@@ -209,10 +221,38 @@ UITextView
             break;
         case ComposeToolbarButtonTypeEmotion: //表情
             
+            [self switchKeyboard];
+            
             break;
         default:
             break;
     }
+}
+
+-(void)switchKeyboard{
+    
+    if (self.textView.inputView ==nil) {
+ 
+        self.textView.inputView = self.emotionKeyboard;
+        
+        self.toolbar.showKeyboardButton = YES;
+        
+    }else{
+        //切换为系统自带键盘
+        self.textView.inputView = nil;
+        self.toolbar.showKeyboardButton = NO;
+    }
+    
+    //退出键盘
+    [self.textView endEditing:YES];
+//    [self.view.window endEditing:YES];
+//    [self.textView resignFirstResponder];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
+            [self.textView becomeFirstResponder];
+    });
+    
 }
 
 #pragma mark - event response
