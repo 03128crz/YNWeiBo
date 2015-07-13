@@ -60,6 +60,7 @@
 		AC59FF8D1B483C7A00F867B6 /* StatusFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = AC59FF8C1B483C7A00F867B6 /* StatusFrame.m */; };
 		AC59FF901B48FD7E00F867B6 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = AC59FF8F1B48FD7E00F867B6 /* Photo.m */; };
 		AC59FF931B497CE800F867B6 /* StatusToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = AC59FF921B497CE800F867B6 /* StatusToolbar.m */; };
+		AC76FA941B53F64400E43DDF /* UITextView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = AC76FA931B53F64400E43DDF /* UITextView+Extension.m */; };
 		AC83CEB31B443649000F8A76 /* YNTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = AC83CEB21B443649000F8A76 /* YNTabBar.m */; };
 		AC83CEB61B444B9D000F8A76 /* NewfeatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC83CEB51B444B9D000F8A76 /* NewfeatureViewController.m */; };
 		AC9755F01B501FC0000FC40E /* ComposeToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9755EF1B501FC0000FC40E /* ComposeToolbar.m */; };
@@ -208,6 +209,8 @@
 		AC59FF8F1B48FD7E00F867B6 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
 		AC59FF911B497CE800F867B6 /* StatusToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusToolbar.h; sourceTree = "<group>"; };
 		AC59FF921B497CE800F867B6 /* StatusToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusToolbar.m; sourceTree = "<group>"; };
+		AC76FA921B53F64400E43DDF /* UITextView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+Extension.h"; sourceTree = "<group>"; };
+		AC76FA931B53F64400E43DDF /* UITextView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+Extension.m"; sourceTree = "<group>"; };
 		AC83CEB11B443649000F8A76 /* YNTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YNTabBar.h; sourceTree = "<group>"; };
 		AC83CEB21B443649000F8A76 /* YNTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YNTabBar.m; sourceTree = "<group>"; };
 		AC83CEB41B444B9D000F8A76 /* NewfeatureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewfeatureViewController.h; sourceTree = "<group>"; };
@@ -798,6 +801,8 @@
 				ACE515091B4ED31E00257E35 /* UIView+Extension.m */,
 				ACE5150A1B4ED31E00257E35 /* UIWindow+Extension.h */,
 				ACE5150B1B4ED31E00257E35 /* UIWindow+Extension.m */,
+				AC76FA921B53F64400E43DDF /* UITextView+Extension.h */,
+				AC76FA931B53F64400E43DDF /* UITextView+Extension.m */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1013,6 +1018,7 @@
 				AC59FF401B48058400F867B6 /* NSObject+MJKeyValue.m in Sources */,
 				ACB64D3D1B51619400091BFB /* EmotionTabBar.m in Sources */,
 				AC59FF931B497CE800F867B6 /* StatusToolbar.m in Sources */,
+				AC76FA941B53F64400E43DDF /* UITextView+Extension.m in Sources */,
 				AC03AFEB1B4D7AA400239781 /* IconView.m in Sources */,
 				AC01C3A31B41968A007D0D40 /* MessageCenterViewController.m in Sources */,
 				AC59FF741B4805C200F867B6 /* MJRefreshHeader.m in Sources */,

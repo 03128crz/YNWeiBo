@@ -17,6 +17,7 @@
 @interface EmotionPageView ()
 /** 表情放大镜*/
 @property (strong, nonatomic) EmotionPopView *popView;
+@property (weak, nonatomic) UIButton *deleteButton;
 @end
 
 @implementation EmotionPageView
@@ -32,6 +33,17 @@
 
 -(instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
+        
+        UIButton *deleteButton =[UIButton new];
+        [deleteButton setImage:[UIImage imageNamed:@"compose_emotion_delete"] forState:UIControlStateNormal];
+        [deleteButton setImage:[UIImage imageNamed:@"compose_emotion_delete_highlighted"] forState:UIControlStateHighlighted];
+        
+        [self addSubview:deleteButton];
+        
+        [deleteButton addTarget:self action:@selector(deleteClick) forControlEvents:UIControlEventTouchUpInside];
+        
+        self.deleteButton = deleteButton;
+        
         
         
     }
@@ -53,6 +65,11 @@
         
     }
     
+}
+
+-(void)deleteClick{
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"EmotionDidDeleteNotification" object:nil userInfo:nil];
 }
 
 -(void)btnClick:(EmotionButton *)btn{
@@ -90,7 +107,7 @@
     for (int i =0; i<count; i++) {
         
         
-        UIButton *btn = self.subviews[i];
+        UIButton *btn = self.subviews[i+1];//加1是因为删除按钮在第一个
         btn.width = btnW;
         btn.height = btnH;
         
@@ -98,6 +115,13 @@
         btn.y = PageViewInset +(i/7)*btnH;
         
     }
+    
+    //每页都有个删除按钮
+    self.deleteButton.width = btnW;
+    self.deleteButton.height = btnH;
+    self.deleteButton.x = self.width-PageViewInset-btnW;
+    self.deleteButton.y = self.height - btnH;
+    
 }
 
 @end

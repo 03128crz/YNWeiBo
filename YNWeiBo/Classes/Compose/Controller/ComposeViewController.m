@@ -133,6 +133,8 @@ UITextView
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(emotionDidSelect:) name:@"EmotionDidSelectNotification" object:nil];
     
+     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(emotionDidDelete:) name:@"EmotionDidDeleteNotification" object:nil];
+    
     //
     //self.automaticallyAdjustsScrollViewInsets = NO;
 }
@@ -163,6 +165,13 @@ UITextView
     
     Emotion *emotion = notification.userInfo[@"selectEmotionKey"];
     [self.textView insertEmotion:emotion];
+    
+    
+}
+
+-(void)emotionDidDelete:(NSNotification *)notification{
+    
+    [self.textView deleteBackward];
     
     
 }

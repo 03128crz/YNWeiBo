@@ -91,5 +91,10 @@
 
 }
 
+-(void)setAttributedText:(NSAttributedString *)attributedText{
+    [self setNeedsDisplay];
+    [super setAttributedText:attributedText];
+}
+
 
 @end
