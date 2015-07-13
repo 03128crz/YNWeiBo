@@ -12,4 +12,6 @@
 
 -(void)insertEmotion:(Emotion *)emotion;
 
+-(NSString *)fullText;
+
 @end

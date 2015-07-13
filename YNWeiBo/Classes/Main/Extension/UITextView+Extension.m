@@ -27,7 +27,7 @@
     [attrText insertAttributedString:text atIndex:loc];
     
     //调用外面传进来的代码 ，要先判断不是为nil
-    if (settingBlock) {
+    if (settingBlock) { //把attText传到外面去
         settingBlock(attrText);
     }
     

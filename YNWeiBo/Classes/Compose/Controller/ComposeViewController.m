@@ -290,8 +290,9 @@ UITextView
     AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"access_token"] = [AccountTool account].access_token;
-    params[@"status"]= self.textView.text;
-    
+    //普通文本不包含表情
+    //params[@"status"]= self.textView.text;
+    params[@"status"] = self.textView.fullText;
   
     if (self.photosView.photos.count) {
         //只支持一张图片
