@@ -8,6 +8,7 @@
 
 #import "EmotionPopView.h"
 #import "Emotion.h"
+#import "UIView+Extension.h"
 #import "EmotionButton.h"
 
 @interface EmotionPopView ()
@@ -23,11 +24,27 @@
     return [[[NSBundle mainBundle] loadNibNamed:@"EmotionPopView" owner:nil options:nil] lastObject];
 }
 
--(void)setEmotion:(Emotion *)emotion{
-    _emotion = emotion;
+
+-(void)showFrom:(EmotionButton *)button{
     
-    self.emotionButton.emotion = emotion;
+    if (button ==nil) {
+        return;
+    }
     
+    self.emotionButton.emotion = button.emotion;
+    
+    UIWindow *windows =  [[UIApplication sharedApplication].windows lastObject];
+    
+    [windows addSubview:self];
+    //    self.popView.y = btn.centerY-self.popView.height;
+    //    self.popView.centerX = btn.centerX;
+    //转换坐标系
+    
+    //计算出被点击的按钮在windows的frame
+    CGRect frame = [button convertRect:button.bounds toView:windows];
+    self.y = CGRectGetMidY(frame)-self.height;
+    self.centerX = CGRectGetMidX(frame);
+ 
 }
 
 @end

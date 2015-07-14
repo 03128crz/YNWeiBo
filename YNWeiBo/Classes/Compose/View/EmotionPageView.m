@@ -45,6 +45,8 @@
         self.deleteButton = deleteButton;
         
         
+        //添加长按手势
+        [self addGestureRecognizer:[[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressPageView:) ] ];
         
     }
     
@@ -67,6 +69,54 @@
     
 }
 
+-(EmotionButton *)emotionButtonWithLocation:(CGPoint)location{
+    
+    NSUInteger count = self.emotions.count;
+    for (int i = 0; i<count; i++) {
+        EmotionButton *btn = self.subviews[i+1];
+        if (CGRectContainsPoint(btn.frame, location)) {
+            
+            return btn;
+        }
+    }
+    
+    return nil;
+
+}
+
+-(void)longPressPageView:(UILongPressGestureRecognizer *)recognizer{
+    
+    CGPoint location = [recognizer locationInView:self];
+    
+    EmotionButton *btn = [self emotionButtonWithLocation:location];
+    
+    switch (recognizer.state) {
+        case UIGestureRecognizerStateCancelled:
+        case UIGestureRecognizerStateEnded:{
+            //手指已经不再触摸pageView
+            [self.popView removeFromSuperview];
+            //如果手指还在表情按钮上，发通知给controller插入表情
+            if (btn) {
+                NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
+                userInfo[@"selectEmotionKey"] = btn.emotion;
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"EmotionDidSelectNotification" object:nil userInfo:userInfo];
+            }
+            
+            break;
+        }
+        case UIGestureRecognizerStateBegan://刚检测到长按
+        case UIGestureRecognizerStateChanged:{//手指位置改变
+            [self.popView showFrom:btn];
+            
+            break;
+        }
+        default:
+            break;
+    }
+    
+
+}
+
 -(void)deleteClick{
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"EmotionDidDeleteNotification" object:nil userInfo:nil];
@@ -74,19 +124,7 @@
 
 -(void)btnClick:(EmotionButton *)btn{
 
-   UIWindow *windows =  [[UIApplication sharedApplication].windows lastObject];
-    
-    [windows addSubview:self.popView];
-//    self.popView.y = btn.centerY-self.popView.height;
-//    self.popView.centerX = btn.centerX;
-    //转换坐标系
-    
-    //计算出被点击的按钮在windows的frame
-    CGRect frame = [btn convertRect:btn.bounds toView:windows];
-    self.popView.y = CGRectGetMidY(frame)-self.popView.height;
-    self.popView.centerX = CGRectGetMidX(frame);
-    
-    self.popView.emotion = btn.emotion;
+    [self.popView showFrom:btn];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.popView removeFromSuperview];
