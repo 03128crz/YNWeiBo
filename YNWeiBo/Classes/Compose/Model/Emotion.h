@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Emotion : NSObject
+@interface Emotion : NSObject<NSCoding>
 
 @property(nonatomic,copy)NSString *chs;
 @property(nonatomic,copy)NSString *png;

@@ -40,7 +40,7 @@
         [pageControl setValue:[UIImage imageNamed:@"compose_keyboard_dot_normal"] forKey:@"pageImage"];
         [pageControl setValue:[UIImage imageNamed:@"compose_keyboard_dot_selected"] forKey:@"currentPageImage"];
         pageControl.userInteractionEnabled = NO;
-        
+        pageControl.hidesForSinglePage = YES;
         [self addSubview:pageControl];
         self.pageControl = pageControl;
     }
@@ -53,6 +53,7 @@
     
     //1.PageControl
     NSUInteger count = (emotions.count+EmotionPageSize-1)/EmotionPageSize;
+    
     self.pageControl.numberOfPages = count;
     
     //2.UIScrollView 创建用来显示每一页表情的控件

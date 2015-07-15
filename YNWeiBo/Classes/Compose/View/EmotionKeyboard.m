@@ -12,6 +12,7 @@
 #import "UIView+Extension.h"
 #import "MJExtension.h"
 #import "Emotion.h"
+#import "EmotionTool.h"
 
 @interface EmotionKeyboard ()<EmotionTabBarDelegate>
 /** 容纳表情控件*/
@@ -30,6 +31,10 @@
 -(EmotionListView *)recentListView{
     if (!_recentListView) {
         self.recentListView = [[EmotionListView alloc] init];
+        //加载沙盒中的数据
+        
+        self.recentListView.emotions = [EmotionTool recentEmotions];
+        
     }
     
     return _recentListView;

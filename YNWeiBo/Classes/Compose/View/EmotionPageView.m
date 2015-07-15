@@ -12,6 +12,7 @@
 #import "NSString+Emoji.h"
 #import "EmotionPopView.h"
 #import "UIView+Extension.h"
+#import "EmotionTool.h"
 #import "EmotionButton.h"
 
 @interface EmotionPageView ()
@@ -97,9 +98,7 @@
             [self.popView removeFromSuperview];
             //如果手指还在表情按钮上，发通知给controller插入表情
             if (btn) {
-                NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
-                userInfo[@"selectEmotionKey"] = btn.emotion;
-                [[NSNotificationCenter defaultCenter] postNotificationName:@"EmotionDidSelectNotification" object:nil userInfo:userInfo];
+                [self selectEmotion:btn.emotion];
             }
             
             break;
@@ -130,9 +129,8 @@
         [self.popView removeFromSuperview];
     });
     
-    NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
-    userInfo[@"selectEmotionKey"] = btn.emotion;
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"EmotionDidSelectNotification" object:nil userInfo:userInfo];
+    [self selectEmotion:btn.emotion];
+
 }
 
 -(void)layoutSubviews{
@@ -160,6 +158,17 @@
     self.deleteButton.x = self.width-PageViewInset-btnW;
     self.deleteButton.y = self.height - btnH;
     
+}
+
+-(void)selectEmotion:(Emotion *)emotion{
+    
+    //表情存沙盒
+    [EmotionTool addRecentEmotion:emotion];
+    
+    //发出通知
+    NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
+    userInfo[@"selectEmotionKey"] = emotion;
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"EmotionDidSelectNotification" object:nil userInfo:userInfo];
 }
 
 @end

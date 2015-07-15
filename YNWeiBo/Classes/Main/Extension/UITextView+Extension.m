@@ -24,7 +24,9 @@
     
     NSUInteger loc = self.selectedRange.location;
     //加到光标所在位置的后面
-    [attrText insertAttributedString:text atIndex:loc];
+    //[attrText insertAttributedString:text atIndex:loc];
+    //光标多选替换
+    [attrText replaceCharactersInRange:self.selectedRange withAttributedString:text];
     
     //调用外面传进来的代码 ，要先判断不是为nil
     if (settingBlock) { //把attText传到外面去
