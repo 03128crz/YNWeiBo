@@ -51,6 +51,9 @@
 -(void)setEmotions:(NSArray *)emotions{
     _emotions = emotions;
     
+    //删除之新创建的
+    [self.scrollView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    
     //1.PageControl
     NSUInteger count = (emotions.count+EmotionPageSize-1)/EmotionPageSize;
     
@@ -75,6 +78,8 @@
         [self.scrollView addSubview:pageView];
         
     }
+    
+    [self setNeedsLayout];
     
 }
 

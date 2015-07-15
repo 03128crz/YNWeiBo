@@ -90,9 +90,20 @@
         [self addSubview:tabBar];
         self.tabBar = tabBar;
         
+          [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(emotionDidSelect) name:@"EmotionDidSelectNotification" object:nil];
+        
     }
     
     return self;
+}
+
+-(void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+-(void)emotionDidSelect{
+    
+    self.recentListView.emotions = [EmotionTool recentEmotions];
 }
 
 -(void)layoutSubviews{
